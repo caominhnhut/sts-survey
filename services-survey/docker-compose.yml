@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14.3
+    container_name: stssurvey-postgresql-db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /data/postgres
+    volumes:
+      - postgres-volume:/data/postgres
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    networks:
+      - mynetwork
+    restart: always
+
+  keycloak-mysql:
+    image: mysql:5.7
+    ports:
+      - ${MYSQL_PORT}:${MYSQL_PORT}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - mynetwork
+
+  keycloak:
+      image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
+      environment:
+        DB_VENDOR: MYSQL
+        DB_ADDR: keycloak-mysql
+        DB_DATABASE: ${MYSQL_DATABASE}
+        DB_USER: ${MYSQL_USER}
+        DB_PASSWORD: ${MYSQL_PASSWORD}
+        KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+        KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+        # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the MySQL JDBC driver documentation in order to use it.
+        #JDBC_PARAMS: "connectTimeout=30000"
+      ports:
+        - ${KEYCLOAK_PORT}:${KEYCLOAK_PORT}
+      command:
+        - start-dev
+        - --features admin-fine-grained-authz
+        - --import-realm
+        - --http-relative-path=/auth
+      networks:
+        - mynetwork
+      depends_on:
+        - keycloak-mysql
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  postgres-volume:
+  mysql_data:
+    driver: local
