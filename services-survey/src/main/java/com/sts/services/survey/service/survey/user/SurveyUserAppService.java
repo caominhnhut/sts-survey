@@ -57,7 +57,6 @@ public class SurveyUserAppService {
         return surveyUserResult;
     }
 
-    ;
 
     private long validateAndGetCorrectAnswerSurveyUser(SurveyUserSubmit surveyUserSubmit, List<QuestionAnswerEntity> correctQuestionAnswers) {
         Map<Long, List<Long>> correctQuestionAnswerMap = new HashMap<Long, List<Long>>();

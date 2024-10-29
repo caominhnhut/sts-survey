@@ -50,6 +50,9 @@ services:
         - --features admin-fine-grained-authz
         - --import-realm
         - --http-relative-path=/auth
+      volumes:
+        - ./documents/realm-export:/opt/keycloak/data/import
+        - ./documents/keycloak-custom-theme:/opt/keycloak/themes
       networks:
         - mynetwork
       depends_on:
