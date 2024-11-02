@@ -21,6 +21,11 @@ public class SurveyQueryServiceImpl implements SurveyQueryService {
     }
 
     @Override
+    public SurveyQueryDto getSurveyDetails(Long surveyId) {
+        return surveyMyBatisMapper.getSurveyDetails(surveyId);
+    }
+
+    @Override
     public SurveyQueryDto getSimpleSurveyDetails(Long surveyId) {
         return surveyMyBatisMapper.getSimpleSurveyDetails(surveyId);
     }

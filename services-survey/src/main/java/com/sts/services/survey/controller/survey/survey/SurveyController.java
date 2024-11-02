@@ -31,8 +31,15 @@ public class SurveyController {
         return ResponseEntity.ok(ResponseDto.response(surveys));
     }
 
-    @PreAuthorize("hasAuthority('ROLE_fm')")
+    @PreAuthorize("hasAuthority('ROLE_fm') or hasAuthority('ROLE_pm')")
     @GetMapping("/surveys/{id}")
+    public ResponseEntity<ResponseDto<SurveyQueryDto>> getSurveyDetails(@PathVariable("id") @Positive Long id) {
+        SurveyQueryDto survey = surveyQueryService.getSurveyDetails(id);
+        return ResponseEntity.ok(ResponseDto.response(survey));
+    }
+
+    @PreAuthorize("hasAuthority('ROLE_fm')")
+    @GetMapping("/surveys//{id}/secured")
     public ResponseEntity<ResponseDto<SurveyQueryDto>> getSimpleSurveyDetails(@PathVariable("id") @Positive Long id) {
         SurveyQueryDto surveys = surveyQueryService.getSimpleSurveyDetails(id);
         return ResponseEntity.ok(ResponseDto.response(surveys));

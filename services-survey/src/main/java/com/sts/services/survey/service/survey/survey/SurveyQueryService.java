@@ -8,5 +8,7 @@ public interface SurveyQueryService {
 
     List<SurveyQueryDto> getSurveys();
 
+    SurveyQueryDto getSurveyDetails(Long surveyId);
+
     SurveyQueryDto getSimpleSurveyDetails(Long surveyId);
 }
