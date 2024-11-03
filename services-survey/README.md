@@ -8,11 +8,11 @@ docker-compose up -d
 ```
 - Login admin page http://localhost:8080/auth.
 - Regenerate client secret for these clients (because secret is can not be carried with export).
-    - sso-idp-client in "sso" realm, then update it that sceret into "stssurvey" realm identity providers.
-    - stssurvey-services-client in "stssurvey" for backend connection attempt.
-    - stssurvey-login-sso-idp-client in "stssurvey" for front end login.
-- Update public key of RS256 (Realm Setting -> keys) in properties file, for some reason keycloak 22 has some problems with jwks_uri.
-- Users will be stored in "sso" realm with UI login purpose but for the testing convenience we could use Users in "stssurvey" realm.
+    - sso-idp-client in "sso" realm -> update that sceret to "stssurvey" realm's identity providers.
+    - stssurvey-services-client in "stssurvey" -> update that secret in backend properties file for connection attempt.
+- Update public key of RS256 (Realm Setting -> keys -> RS256 Public Key) -> update that secret in backend properties file, for some reason keycloak 22 has some problems with jwks_uri.
+
+- Create user in "sso" realm, users should be stored in "sso" realm with UI login purpose but for the testing convenience we also can create users in "stssurvey" realm.
 - Users will be temporarily locked 1 minute after invalid login 2 times.
 ```
 ##### Getting token from keycloak

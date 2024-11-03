@@ -17,7 +17,7 @@ public class SurveyUserSubmitValidator implements Validator<SurveyUserSubmitRequ
     }
 
     @Override
-    public List<com.sts.services.survey.dto.common.Error> validate(SurveyUserSubmitRequestDto surveyUserSubmitRequestDto) {
+    public List<Error> validate(SurveyUserSubmitRequestDto surveyUserSubmitRequestDto) {
 
         List<Error> errors = new ArrayList<>();
 

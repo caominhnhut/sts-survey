@@ -1,19 +1,17 @@
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import BookBox from "../components/BookBox";
-import RenderOnAnonymous from "./RenderOnAnonymous";
 import RenderOnAuthenticated from "./RenderOnAuthenticated";
-import Welcome from "./Welcome";
+import UserLayout from "../layouts/UserLayout";
+import SurveyRoutes from "../routes/SurveyRoutes";
 
 const App = ({ store }) => (
   <Provider store={store}>
     <BrowserRouter>
       <div className="container">
-        <RenderOnAnonymous>
-          <Welcome/>
-        </RenderOnAnonymous>
         <RenderOnAuthenticated>
-          <BookBox/>
+          <UserLayout>
+            <SurveyRoutes />
+          </UserLayout>
         </RenderOnAuthenticated>
       </div>
     </BrowserRouter>

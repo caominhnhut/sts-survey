@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5f63c4ca-68be-4d9b-91ce-94bbe80da78c",
+		"_postman_id": "fce8db61-ac43-48d4-b987-7a3c84e6cba8",
 		"name": "sts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "11805057"
@@ -126,7 +126,7 @@
 										},
 										{
 											"key": "code",
-											"value": "fe028056-c3a6-428b-8775-8769d64d2519.d7374070-8ca5-49df-b0e8-ac9ceac62110.09bfd85e-da86-4087-bd4e-0472e466c462",
+											"value": "27f2b3fb-cdc5-4dd2-ba0c-627508e5cabb.0430a57c-bb3d-49e7-902a-c4dadf28d538.09bfd85e-da86-4087-bd4e-0472e466c462",
 											"type": "text"
 										},
 										{
@@ -144,24 +144,6 @@
 											"key": "redirect_uri",
 											"value": "https://oidcdebugger.com/debug",
 											"type": "text"
-										},
-										{
-											"key": "scope",
-											"value": "openid ",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "state",
-											"value": "8l0q3dca1fb",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "session_state",
-											"value": "fb19f607-80a1-4f6e-a8a6-b87437eb0781",
-											"type": "text",
-											"disabled": true
 										}
 									]
 								},
@@ -1019,7 +1001,87 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Get-Survey-Details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8181/api/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 02 Nov 2024 13:19:51 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"General Knowledge\",\n        \"description\": \"This survey is used for testing your general knowledge about Work Ethics, Society, Universe.\",\n        \"performTimeout\": 900000,\n        \"passCorrectAnswerNumber\": 2,\n        \"questions\": [\n            {\n                \"id\": 1,\n                \"name\": \"Công ty có quy đnh ấm đánh nhau, nhưng bạn phát sinh mâu thuẫn với đồng nghiệp, đồng nghiệp muốn đánh bạn thì bạn phải làm thế nào?\",\n                \"answerType\": \"SINGLE\",\n                \"answers\": [\n                    {\n                        \"id\": 1,\n                        \"name\": \"Đợi ở cổng công ty\"\n                    },\n                    {\n                        \"id\": 2,\n                        \"name\": \"Chạy\"\n                    },\n                    {\n                        \"id\": 3,\n                        \"name\": \"Đánh\"\n                    },\n                    {\n                        \"id\": 4,\n                        \"name\": \"Báo cấp trên\"\n                    }\n                ]\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Select Top 3 biggest cities in Vietnam.\",\n                \"answerType\": \"MULTI\",\n                \"answers\": [\n                    {\n                        \"id\": 5,\n                        \"name\": \"Ho Chi Minh\"\n                    },\n                    {\n                        \"id\": 6,\n                        \"name\": \"Ha Noi\"\n                    },\n                    {\n                        \"id\": 7,\n                        \"name\": \"Da Nang\"\n                    },\n                    {\n                        \"id\": 8,\n                        \"name\": \"Binh Duong\"\n                    }\n                ]\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Hãy nêu cảm nghĩ của bạn về độ hiệu quả của bài test!\",\n                \"description\": \"Vui lòng nhập câu trả lời vào bên dưới.\",\n                \"answerType\": \"TEXT\",\n                \"answers\": [\n                    {\n                        \"id\": 9,\n                        \"name\": \"<Some keyword could be used for checking TEXT type>\"\n                    }\n                ]\n            }\n        ]\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Get-Survey-Secured",
@@ -1027,7 +1089,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8181/api/surveys/secured/1",
+									"raw": "http://localhost:8181/api/surveys/1/secured",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1036,8 +1098,8 @@
 									"path": [
 										"api",
 										"surveys",
-										"secured",
-										"1"
+										"1",
+										"secured"
 									]
 								}
 							},
@@ -2003,7 +2065,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8181/api/survey-histories?username=cuong-services",
+									"raw": "http://localhost:8181/api/survey-histories?username=cuong-sso",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2016,7 +2078,7 @@
 									"query": [
 										{
 											"key": "username",
-											"value": "cuong-services"
+											"value": "cuong-sso"
 										}
 									]
 								}

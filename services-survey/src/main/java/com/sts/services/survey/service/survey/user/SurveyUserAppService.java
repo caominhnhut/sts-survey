@@ -41,12 +41,15 @@ public class SurveyUserAppService {
 
     @Transactional
     public SurveyUserResult submit(Long surveyId, SurveyUserSubmit surveyUserSubmit) {
-        // -- Get context data
+        // -- Get username from authentication
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         SurveyEntity survey = surveyAdapter.findById(surveyId).orElseThrow(() -> new ValidationException("surveyId", "Survey not found"));
-        if (!Status.ACTIVE.equals(survey.getStatus())) throw new ValidationException("surveyId", "Survey is not active");
+        if (!Status.ACTIVE.equals(survey.getStatus()))
+            throw new ValidationException("surveyId", "Survey is not active");
+
         List<QuestionEntity> questions = questionAdapter.findBySurveyId(surveyId);
-        // Only get correct answers, no need to get all, better for performance.
+        // -- Only get correct answers, no need to get all, better for performance.
         List<QuestionAnswerEntity> correctQuestionAnswers = questionAnswerAdapter.getCorrectQuestionAnswers(surveyId);
 
         // -- Calculation
@@ -59,8 +62,8 @@ public class SurveyUserAppService {
 
 
     private long validateAndGetCorrectAnswerSurveyUser(SurveyUserSubmit surveyUserSubmit, List<QuestionAnswerEntity> correctQuestionAnswers) {
-        Map<Long, List<Long>> correctQuestionAnswerMap = new HashMap<Long, List<Long>>();
         // Map<questionId, correctAnswerIds> for look up
+        Map<Long, List<Long>> correctQuestionAnswerMap = new HashMap<Long, List<Long>>();
         correctQuestionAnswers.forEach(questionAnswer ->
                 correctQuestionAnswerMap.compute(questionAnswer.getQuestionId(), (questionId, answerIds) -> {
                     if (answerIds == null) answerIds = new ArrayList<>(List.of(questionAnswer.getId()));
@@ -69,12 +72,11 @@ public class SurveyUserAppService {
                 })
         );
 
-        // No distinction for ids
         // Currently checking for selection question only, in reality it could be no such thing as TEXT question for survey
         return surveyUserSubmit.getQuestionAnswers().stream()
                 .filter(userQuestionAnswer -> {
                     List<Long> correctAnswerIds = correctQuestionAnswerMap.get(userQuestionAnswer.getQuestionId());
-                    // No distinction for ids
+                    // Ignore warning, no distinction for ids in checking correct answer.
                     return correctAnswerIds != null && userQuestionAnswer.getAnswerIds() != null
                             && userQuestionAnswer.getAnswerIds().size() == correctAnswerIds.size()
                             && userQuestionAnswer.getAnswerIds().containsAll(correctAnswerIds);
@@ -85,9 +87,14 @@ public class SurveyUserAppService {
 
     private SurveyUserResult buildSurveyUserResult(List<QuestionEntity> questions, Integer passCorrectAnswerNumber, long correctAnswerSurveyUser) {
         int totalQuestions = questions.size();
+
+        // In case question get deactivated or delete
+        if (passCorrectAnswerNumber > totalQuestions) passCorrectAnswerNumber = totalQuestions;
+
         long selectionQuestions = questions.stream()
                 .filter(questionEntity -> List.of(AnswerType.SINGLE, AnswerType.MULTI).contains(questionEntity.getAnswerType()))
                 .count();
+
         // Auto correct for non selection question
         long nonSelectionQuestions = totalQuestions - selectionQuestions;
 
