@@ -1400,7 +1400,7 @@
     "replyTo": "",
     "host": "smtp.gmail.com",
     "from": "cuongwin811@gmail.com",
-    "fromDisplayName": "Security Admin - Cuong Luong",
+    "fromDisplayName": "STS Survey",
     "user": "cuongwin811@gmail.com"
   },
   "loginTheme": "halazv2-theme",
@@ -1522,6 +1522,14 @@
             "saml-user-attribute-mapper"
           ]
         }
+      }
+    ],
+    "org.keycloak.userprofile.UserProfileProvider": [
+      {
+        "id": "35795565-95f3-4ca5-a023-69272919903f",
+        "providerId": "declarative-user-profile",
+        "subComponents": {},
+        "config": {}
       }
     ],
     "org.keycloak.keys.KeyProvider": [

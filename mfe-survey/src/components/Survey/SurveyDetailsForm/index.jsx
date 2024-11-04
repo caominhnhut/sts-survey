@@ -5,11 +5,13 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import Question from "./Question";
+import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const SurveyDetailsForm = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [answers, setAnswers] = useState({});
 
   const surveyDetails = useSelector(
@@ -82,13 +84,16 @@ const SurveyDetailsForm = () => {
         });
       }
     });
-
     dispatch(submitSurvey(id, payload));
   };
 
+  if (surveyResult?.result) {
+    navigate("/surveys/result");
+  }
+
   return (
     <div>
-      <h2>{surveyDetails.name}</h2>
+      <h2 style={{ color: "#3f4e58" }}>{surveyDetails.name}</h2>
       <p>{surveyDetails.description}</p>
 
       <form onSubmit={handleSubmit}>
@@ -101,18 +106,20 @@ const SurveyDetailsForm = () => {
           />
         ))}
 
-        <button
+        <Button
           type="submit"
           style={{
             padding: "8px 16px",
-            backgroundColor: "#1976d2",
+            background: "#3f4d58",
             color: "white",
             border: "none",
             borderRadius: "4px",
+            float: "right",
+            marginBottom: "80px",
           }}
         >
           Submit Survey
-        </button>
+        </Button>
       </form>
     </div>
   );

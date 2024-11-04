@@ -33,7 +33,7 @@ export default function SurveyCardItem({ survey }) {
         <Typography
           gutterBottom
           sx={{
-            color: "text.primary",
+            color: "#3f4d58",
             fontWeight: "bold",
             fontSize: 16,
             mb: 0,

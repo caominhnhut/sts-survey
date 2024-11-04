@@ -3,6 +3,8 @@ import { SUCCESS_SUFFIX } from "redux-axios-middleware";
 const LIST_SURVEYS = "LIST_SURVEYS";
 const GET_SURVEY_DETAILS = "GET_SURVEY_DETAILS";
 const SUBMIT_SURVEY = "SUBMIT_SURVEY";
+export const CLEAR_SURVEY_RESULT = "CLEAR_SURVEY_RESULT";
+
 const initialState = {
   surveys: [],
   surveyDetails: {},
@@ -20,8 +22,8 @@ const surveysReducer = (state = initialState, action) => {
     case SUBMIT_SURVEY + SUCCESS_SUFFIX:
       return { ...state, surveyResult: action.payload.data?.data || {} };
 
-    // case DELETE_SURVEY:
-    //   return state.filter((survey) => survey.id !== action.payload.survey.id);
+    case CLEAR_SURVEY_RESULT:
+      return { ...state, surveyResult: {} };
 
     default:
       return state;
@@ -52,37 +54,9 @@ export const submitSurvey = (id, payload) => ({
   type: SUBMIT_SURVEY,
   payload: {
     request: {
-      url: `/api/surveys/${id}/users`,
+      url: `/api/users/surveys/${id}`,
       method: "POST",
       data: payload,
     },
   },
 });
-
-// export const addBook = (book) => {
-//   console.log(`${UserService.getUsername()} added the book ${book.title}`);
-//   return {
-//     type: ADD_SURVEY,
-//     payload: {
-//       request: {
-//         url: "/demo/books",
-//         method: "POST",
-//         data: book,
-//       },
-//     },
-//   };
-// };
-
-// export const deleteBook = (book) => {
-//   console.log(`${UserService.getUsername()} deletes the book ${book.title}`);
-//   return {
-//     type: DELETE_BOOK,
-//     payload: {
-//       book,
-//       request: {
-//         url: `/demo/books/${book.id}`,
-//         method: "DELETE",
-//       },
-//     },
-//   };
-// };

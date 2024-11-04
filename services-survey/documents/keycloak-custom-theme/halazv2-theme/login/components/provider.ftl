@@ -2,21 +2,10 @@
 
 <#macro kw>
     <div class="separate pt-4">${msg("identity-provider-login-label")}</div>
-    <div class="flex <#if social.providers?size gt 3>justify-between<#else>justify-around</#if>">
-        <#list social.providers as provider>
-            <a
-                    class="text-5xl"
-                    data-provider="${provider.alias}"
-                    href="${provider.loginUrl}"
-                    title="${provider.displayName!}"
-                    type="button"
-            >
-                <#if provider.iconClasses?has_content>
-                    <i class="${provider.iconClasses!}"></i>
-                <#else>
-                    <@socials[provider.alias] />
-                </#if>
-            </a>
+    <!--<p class="para">${msg("socialLoginAlternate")}</p>-->
+    <div id="social-providers">
+        <#list social.providers as p>
+            <input class="social-link-style" type="button" onclick="location.href='${p.loginUrl}';" value="${p.displayName}"/>
         </#list>
     </div>
 </#macro>

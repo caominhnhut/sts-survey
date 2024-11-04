@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import SideBar from "../components/SideBar";
+import NavBar from "../components/Common/NavBar";
+import SideBar from "../components/Common/SideBar";
 
 const UserLayout = ({ children }) => {
   return (

@@ -1,7 +1,7 @@
 -- #1
 INSERT INTO public.survey (name, description, perform_timeout, pass_correct_answer_number, status) VALUES ('General Knowledge', 'This survey is used for testing your general knowledge about Work Ethics, Society, Universe.', 900000, 2, 'ACTIVE');
 
-INSERT INTO public.question (name, description, answer_type, status) VALUES ('Công ty có quy đnh ấm đánh nhau, nhưng bạn phát sinh mâu thuẫn với đồng nghiệp, đồng nghiệp muốn đánh bạn thì bạn phải làm thế nào?', null, 'SINGLE', 'ACTIVE');
+INSERT INTO public.question (name, description, answer_type, status) VALUES ('Công ty có quy định cấm đánh nhau, nhưng bạn phát sinh mâu thuẫn với đồng nghiệp, đồng nghiệp muốn đánh bạn thì bạn phải làm thế nào?', null, 'SINGLE', 'ACTIVE');
 INSERT INTO public.question_answer (name, description, question_id, is_correct, status) VALUES ('Đợi ở cổng công ty', null, 1, false, 'ACTIVE');
 INSERT INTO public.question_answer (name, description, question_id, is_correct, status) VALUES ('Chạy', null, 1, false, 'ACTIVE');
 INSERT INTO public.question_answer (name, description, question_id, is_correct, status) VALUES ('Đánh', null, 1, false, 'ACTIVE');
@@ -106,8 +106,8 @@ INSERT INTO public.question (name, description, answer_type, status) VALUES ('De
 INSERT INTO public.question_answer (name, description, question_id, is_correct, status) VALUES ('<Some keyword could be used for checking TEXT type>', null, 17, true, 'ACTIVE');
 
 INSERT INTO public.survey_question (survey_id, question_id) VALUES (5, 15);
-INSERT INTO public.survey_question (survey_id, question_id) VALUES (4, 16);
-INSERT INTO public.survey_question (survey_id, question_id) VALUES (4, 17);
+INSERT INTO public.survey_question (survey_id, question_id) VALUES (5, 16);
+INSERT INTO public.survey_question (survey_id, question_id) VALUES (5, 17);
 ----------------------------------------------------------------------------------------------------
 -- #6
 INSERT INTO public.survey (name, description, perform_timeout, pass_correct_answer_number, status) VALUES ('Health and Wellness', 'Knowledge about health practices.', 900000, 2, 'ACTIVE');

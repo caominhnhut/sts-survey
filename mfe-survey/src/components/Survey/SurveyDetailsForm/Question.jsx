@@ -1,3 +1,11 @@
+import {
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  Checkbox,
+} from "@mui/material";
+
 const Question = ({ question, index, handleAnswerChange }) => {
   const renderAnswerByQuestionType = () => {
     if (question.answerType === "TEXT") {
@@ -10,6 +18,8 @@ const Question = ({ question, index, handleAnswerChange }) => {
             borderRadius: "4px",
             border: "1px solid #e0e0e0",
             boxSizing: "border-box",
+            fontSize: "16px",
+            backgroundColor: "rgb(246, 246, 246)",
           }}
           placeholder="Enter your answer..."
           onChange={(e) => handleAnswerChange(question, e.target.value)}
@@ -18,48 +28,33 @@ const Question = ({ question, index, handleAnswerChange }) => {
     }
     if (question.answerType === "SINGLE") {
       return (
-        <div>
-          {question.answers.map((answer) => (
-            <div key={answer.id} style={{ marginBottom: "8px" }}>
-              <input
-                type="radio"
-                id={`answer-${answer.id}`}
-                name={`question-${question.id}`}
-                onChange={(e) => handleAnswerChange(question, e.target.value)}
+        <FormControl>
+          <RadioGroup
+            onChange={(e) => handleAnswerChange(question, e.target.value)}
+          >
+            {question.answers.map((answer) => (
+              <FormControlLabel
+                control={<Radio />}
                 value={answer.id}
+                label={answer.name}
               />
-              <label
-                htmlFor={`answer-${answer.id}`}
-                style={{ marginLeft: "8px" }}
-              >
-                {answer.name}
-              </label>
-            </div>
-          ))}
-        </div>
+            ))}
+          </RadioGroup>
+        </FormControl>
       );
     }
     if (question.answerType === "MULTI") {
       return (
-        <div>
+        <FormControl>
           {question.answers.map((answer) => (
-            <div key={answer.id} style={{ marginBottom: "8px" }}>
-              <input
-                type="checkbox"
-                id={`answer-${answer.id}`}
-                name={`question-${question.id}`}
-                value={answer.id}
-                onChange={(e) => handleAnswerChange(question, e.target.value)}
-              />
-              <label
-                htmlFor={`answer-${answer.id}`}
-                style={{ marginLeft: "8px" }}
-              >
-                {answer.name}
-              </label>
-            </div>
+            <FormControlLabel
+              control={<Checkbox />}
+              value={answer.id}
+              label={answer.name}
+              onChange={(e) => handleAnswerChange(question, e.target.value)}
+            />
           ))}
-        </div>
+        </FormControl>
       );
     }
   };

@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { applyMiddleware, createStore } from "redux";
 import axiosMiddleware from "redux-axios-middleware";
 import thunk from "redux-thunk";
-import App from "./components/App";
+import App from "./components/App/App";
 import rootReducer from "./redux";
 import UserService from "./services/UserService";
 import "./index.scss";

@@ -32,7 +32,7 @@ public class SurveyUserCommandController {
     private SurveyUserAppService surveyUserAppService;
 
     @PreAuthorize("hasAuthority('ROLE_fm') or hasAuthority('ROLE_pm')")
-    @PostMapping("/surveys/{surveyId}/users")
+    @PostMapping("/users/surveys/{surveyId}")
     public ResponseEntity<ResponseDto<SurveyUserResultResponseDto>> submitSurvey(@PathVariable @Positive Long surveyId,
                                                                                  @Valid @RequestBody SurveyUserSubmitRequestDto surveyUserSubmitRequestDto) {
         SurveyUserSubmit surveyUserSubmit = surveyUserMapper.toSurveyUserSubmit(surveyUserSubmitRequestDto);

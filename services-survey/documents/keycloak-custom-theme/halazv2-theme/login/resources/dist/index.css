@@ -934,3 +934,23 @@ select {
         line-height: 1
     }
 }
+
+.social-link-style {
+    border: 0 solid #e5e7eb;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    background-color: #3a6e4c;
+    width: 315px;
+    height: 36px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #f2f6f5;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+

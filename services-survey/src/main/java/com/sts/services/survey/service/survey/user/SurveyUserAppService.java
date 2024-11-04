@@ -88,7 +88,7 @@ public class SurveyUserAppService {
     private SurveyUserResult buildSurveyUserResult(List<QuestionEntity> questions, Integer passCorrectAnswerNumber, long correctAnswerSurveyUser) {
         int totalQuestions = questions.size();
 
-        // In case question get deactivated or delete
+        // In case question get deactivated or deleted
         if (passCorrectAnswerNumber > totalQuestions) passCorrectAnswerNumber = totalQuestions;
 
         long selectionQuestions = questions.stream()

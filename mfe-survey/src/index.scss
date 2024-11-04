@@ -9,7 +9,8 @@ h5,
 h6,
 div,
 button,
-span {
+span,
+textarea {
   font-family: "Montserrat", sans-serif !important;
   font-optical-sizing: auto;
   font-style: normal;
@@ -41,5 +42,63 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+}
+
+.navbar {
+  background-color: #2b363f !important;
+
+  &.MuiPaper-root.MuiPaper-elevation {
+    padding: 0 14px !important;
+  }
+}
+
+.MuiBox-root {
+  background-color: #3f4d58;
+
+  .MuiListSubheader-root {
+    display: none;
+  }
+
+  .MuiButtonBase-root {
+    background-color: #3f4d58 !important;
+  }
+
+  .custom-menu-item {
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.753);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #3f4d58;
+
+    &.selected {
+      background-color: #2b363f;
+    }
+
+    &:hover {
+      background-color: #2b363f94;
+    }
+  }
+}
+
+.result-table {
+  th {
+    text-align: left;
+    font-weight: 700;
+  }
+  td {
+    padding: 0 48px;
+  }
+
+  .pass {
+    color: #00ff00;
+  }
+
+  .fail {
+    color: #ff0000;
   }
 }
