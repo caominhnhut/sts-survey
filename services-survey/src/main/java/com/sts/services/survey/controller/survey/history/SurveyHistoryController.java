@@ -21,7 +21,7 @@ public class SurveyHistoryController {
     private SurveyHistoryQueryService surveyHistoryQueryService;
 
     @PreAuthorize("hasAuthority('ROLE_fm') or hasAuthority('ROLE_pm')")
-    @GetMapping("/survey-histories")
+    @GetMapping("/survey/histories")
     public ResponseEntity<ResponseDto<List<SurveyHistoryQueryDto>>> getSurveyHistories(@RequestParam String username) {
         List<SurveyHistoryQueryDto> surveyHistories = surveyHistoryQueryService.getSurveyHistories(username);
         return ResponseEntity.ok(ResponseDto.response(surveyHistories));

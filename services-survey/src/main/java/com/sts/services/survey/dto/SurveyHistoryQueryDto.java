@@ -3,13 +3,13 @@ package com.sts.services.survey.dto;
 import com.sts.services.survey.entity.SurveyResult;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class SurveyHistoryQueryDto {
 

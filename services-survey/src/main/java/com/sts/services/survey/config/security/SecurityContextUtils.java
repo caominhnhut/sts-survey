@@ -1,7 +1,5 @@
 package com.sts.services.survey.config.security;
 
-import java.util.HashSet;
-import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -10,11 +8,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * SecurityContextUtils is used to get username and roles to set created by, last updated by fields.
  */
 @Component
-public class SecurityContextUtils{
+public class SecurityContextUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityContextUtils.class);
 

@@ -13,14 +13,14 @@ export default function ButtonAppBar() {
   const navigate = useNavigate();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" className="navbar">
+      <AppBar className="navbar">
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2, backgroundColor: "red" }}
+            sx={{ mr: 2 }}
           >
             <AssignmentIcon />
           </IconButton>
@@ -30,13 +30,14 @@ export default function ButtonAppBar() {
             sx={{ flexGrow: 1, cursor: "pointer" }}
             onClick={() => navigate("/")}
           >
-            STS Survey
+            <span style={{ color: "black", fontWeight: "bold" }}>STS</span>{" "}
+            <span style={{ color: "#74b915", fontWeight: "bold" }}>Survey</span>
           </Typography>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <div className="">
               Signed in as <b>{UserService.getUsername()}</b>
             </div>
-            <Button color="inherit" onClick={() => UserService.doLogout()}>
+            <Button variant="text" onClick={() => UserService.doLogout()}>
               Logout
             </Button>
           </div>

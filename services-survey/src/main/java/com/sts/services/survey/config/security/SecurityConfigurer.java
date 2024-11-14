@@ -1,4 +1,5 @@
 package com.sts.services.survey.config.security;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -20,10 +21,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 @EnableWebSecurity
 @EnableResourceServer
-@EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled=true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true)
 @ConditionalOnProperty(prefix = "rest.security", value = "enabled", havingValue = "true")
 @Import({SecurityProperties.class})
-public class SecurityConfigurer extends ResourceServerConfigurerAdapter{
+public class SecurityConfigurer extends ResourceServerConfigurerAdapter {
 
     @Autowired
     private ResourceServerProperties resourceServerProperties;

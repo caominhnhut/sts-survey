@@ -8,6 +8,7 @@
         <result property="description" column="survey_description"/>
         <result property="performTimeout" column="perform_timeout"/>
         <result property="passCorrectAnswerNumber" column="pass_correct_answer_number"/>
+        <result property="status" column="status"/>
         <collection property="questions" ofType="com.sts.services.survey.dto.QuestionQueryDto">
             <id property="id" column="question_id"/>
             <result property="name" column="question_name"/>
@@ -18,6 +19,7 @@
                 <id property="id" column="question_answer_id"/>
                 <result property="name" column="question_answer_name"/>
                 <result property="description" column="question_answer_description"/>
+                <result property="isCorrect" column="is_correct"/>
             </collection>
         </collection>
     </resultMap>
@@ -28,6 +30,7 @@
                s.description  AS survey_description,
                s.perform_timeout,
                s.pass_correct_answer_number,
+               s.status,
                q.question_id,
                q.name         AS question_name,
                q.description  AS question_description,
@@ -36,12 +39,11 @@
                qa.name        AS question_answer_name,
                qa.description AS question_answer_description
         FROM survey s
-                 JOIN survey_question sq ON s.survey_id = sq.survey_id
-                 JOIN question q ON sq.question_id = q.question_id
-                 JOIN question_answer qa ON q.question_id = qa.question_id
-        WHERE s.status = 'ACTIVE'
-          AND q.status = 'ACTIVE'
-          AND qa.status = 'ACTIVE'
+                 LEFT JOIN survey_question sq ON s.survey_id = sq.survey_id
+                 LEFT JOIN question q ON sq.question_id = q.question_id
+                 LEFT JOIN question_answer qa ON q.question_id = qa.question_id
+        WHERE (#{activeOnly} = false OR s.status = 'ACTIVE')
+        ORDER BY s.survey_id
     </select>
 
     <select id="getSurveyDetails" resultMap="SurveyQueryDto">
@@ -58,13 +60,33 @@
                qa.name        AS question_answer_name,
                qa.description AS question_answer_description
         FROM survey s
-                 JOIN survey_question sq ON s.survey_id = sq.survey_id
-                 JOIN question q ON sq.question_id = q.question_id
-                 JOIN question_answer qa ON q.question_id = qa.question_id
+                 LEFT JOIN survey_question sq ON s.survey_id = sq.survey_id
+                 LEFT JOIN question q ON sq.question_id = q.question_id
+                 LEFT JOIN question_answer qa ON q.question_id = qa.question_id
         WHERE s.survey_id = #{surveyId}
           AND s.status = 'ACTIVE'
-          AND q.status = 'ACTIVE'
-          AND qa.status = 'ACTIVE'
+    </select>
+
+    <select id="getSurveyDetailsConfig" resultMap="SurveyQueryDto">
+        SELECT s.survey_id,
+               s.name         AS survey_name,
+               s.description  AS survey_description,
+               s.perform_timeout,
+               s.pass_correct_answer_number,
+               s.status,
+               q.question_id,
+               q.name         AS question_name,
+               q.description  AS question_description,
+               q.answer_type,
+               qa.question_answer_id,
+               qa.name        AS question_answer_name,
+               qa.description AS question_answer_description,
+               qa.is_correct
+        FROM survey s
+                 LEFT JOIN survey_question sq ON s.survey_id = sq.survey_id
+                 LEFT JOIN question q ON sq.question_id = q.question_id
+                 LEFT JOIN question_answer qa ON q.question_id = qa.question_id
+        WHERE s.survey_id = #{surveyId}
     </select>
 
 </mapper>

@@ -1,5 +1,7 @@
 package com.sts.services.survey.service.survey.user;
 
+import com.sts.services.survey.command.SurveyUserResultCommand;
+import com.sts.services.survey.command.SurveyUserSubmitCommand;
 import com.sts.services.survey.entity.AnswerType;
 import com.sts.services.survey.entity.QuestionAnswerEntity;
 import com.sts.services.survey.entity.QuestionEntity;
@@ -8,13 +10,11 @@ import com.sts.services.survey.entity.SurveyEntity;
 import com.sts.services.survey.entity.SurveyHistoryEntity;
 import com.sts.services.survey.entity.SurveyResult;
 import com.sts.services.survey.exception.ValidationException;
-import com.sts.services.survey.model.SurveyUserResult;
-import com.sts.services.survey.model.SurveyUserSubmit;
-import com.sts.services.survey.service.survey.history.SurveyHistoryAdapter;
-import com.sts.services.survey.service.survey.question.QuestionAdapter;
-import com.sts.services.survey.service.survey.questionanswer.QuestionAnswerAdapter;
-import com.sts.services.survey.service.survey.survey.SurveyAdapter;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sts.services.survey.service.survey.history.adapter.SurveyHistoryAdapter;
+import com.sts.services.survey.service.survey.question.adapter.QuestionAdapter;
+import com.sts.services.survey.service.survey.questionanswer.adapter.QuestionAnswerAdapter;
+import com.sts.services.survey.service.survey.survey.adapter.SurveyAdapter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -28,19 +28,16 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 public class SurveyUserAppService {
 
-    @Autowired
-    private SurveyAdapter surveyAdapter;
-    @Autowired
-    private QuestionAdapter questionAdapter;
-    @Autowired
-    private QuestionAnswerAdapter questionAnswerAdapter;
-    @Autowired
-    private SurveyHistoryAdapter surveyHistoryAdapter;
+    private final SurveyAdapter surveyAdapter;
+    private final QuestionAdapter questionAdapter;
+    private final QuestionAnswerAdapter questionAnswerAdapter;
+    private final SurveyHistoryAdapter surveyHistoryAdapter;
 
     @Transactional
-    public SurveyUserResult submit(Long surveyId, SurveyUserSubmit surveyUserSubmit) {
+    public SurveyUserResultCommand submit(Long surveyId, SurveyUserSubmitCommand surveyUserSubmitCommand) {
         // -- Get username from authentication
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -53,15 +50,15 @@ public class SurveyUserAppService {
         List<QuestionAnswerEntity> correctQuestionAnswers = questionAnswerAdapter.getCorrectQuestionAnswers(surveyId);
 
         // -- Calculation
-        long correctAnswerSurveyUser = validateAndGetCorrectAnswerSurveyUser(surveyUserSubmit, correctQuestionAnswers);
-        SurveyUserResult surveyUserResult = buildSurveyUserResult(questions, survey.getPassCorrectAnswerNumber(), correctAnswerSurveyUser);
-        createSurveyHistory(surveyId, questions.size(), username, surveyUserResult);
+        long correctAnswerSurveyUser = validateAndGetCorrectAnswerSurveyUser(surveyUserSubmitCommand, correctQuestionAnswers);
+        SurveyUserResultCommand surveyUserResultCommand = buildSurveyUserResult(questions, survey.getPassCorrectAnswerNumber(), correctAnswerSurveyUser);
+        createSurveyHistory(surveyId, questions.size(), username, surveyUserResultCommand);
 
-        return surveyUserResult;
+        return surveyUserResultCommand;
     }
 
 
-    private long validateAndGetCorrectAnswerSurveyUser(SurveyUserSubmit surveyUserSubmit, List<QuestionAnswerEntity> correctQuestionAnswers) {
+    private long validateAndGetCorrectAnswerSurveyUser(SurveyUserSubmitCommand surveyUserSubmitCommand, List<QuestionAnswerEntity> correctQuestionAnswers) {
         // Map<questionId, correctAnswerIds> for look up
         Map<Long, List<Long>> correctQuestionAnswerMap = new HashMap<Long, List<Long>>();
         correctQuestionAnswers.forEach(questionAnswer ->
@@ -73,7 +70,7 @@ public class SurveyUserAppService {
         );
 
         // Currently checking for selection question only, in reality it could be no such thing as TEXT question for survey
-        return surveyUserSubmit.getQuestionAnswers().stream()
+        return surveyUserSubmitCommand.getQuestionAnswers().stream()
                 .filter(userQuestionAnswer -> {
                     List<Long> correctAnswerIds = correctQuestionAnswerMap.get(userQuestionAnswer.getQuestionId());
                     // Ignore warning, no distinction for ids in checking correct answer.
@@ -85,7 +82,7 @@ public class SurveyUserAppService {
     }
 
 
-    private SurveyUserResult buildSurveyUserResult(List<QuestionEntity> questions, Integer passCorrectAnswerNumber, long correctAnswerSurveyUser) {
+    private SurveyUserResultCommand buildSurveyUserResult(List<QuestionEntity> questions, Integer passCorrectAnswerNumber, long correctAnswerSurveyUser) {
         int totalQuestions = questions.size();
 
         // In case question get deactivated or deleted
@@ -103,20 +100,20 @@ public class SurveyUserAppService {
         BigDecimal passPercentage = BigDecimal.valueOf(((double) passCorrectAnswerNumber / totalQuestions) * 100).setScale(2, RoundingMode.HALF_UP);
         SurveyResult surveyResult = coverCorrectAnswerNumber >= passCorrectAnswerNumber ? SurveyResult.PASS : SurveyResult.FAIL;
 
-        return new SurveyUserResult(totalQuestions, passCorrectAnswerNumber, coverCorrectAnswerNumber, passPercentage, coverPercentage, surveyResult);
+        return new SurveyUserResultCommand(totalQuestions, passCorrectAnswerNumber, coverCorrectAnswerNumber, passPercentage, coverPercentage, surveyResult);
     }
 
-    private void createSurveyHistory(Long surveyId, int totalQuestion, String username, SurveyUserResult surveyUserResult) {
+    private void createSurveyHistory(Long surveyId, int totalQuestion, String username, SurveyUserResultCommand surveyUserResultCommand) {
         SurveyHistoryEntity surveyHistoryEntity = new SurveyHistoryEntity();
         surveyHistoryEntity.setSurveyId(surveyId);
         surveyHistoryEntity.setUsername(username);
         surveyHistoryEntity.setSubmitDate(LocalDateTime.now());
         surveyHistoryEntity.setTotalQuestion(totalQuestion);
-        surveyHistoryEntity.setPassCorrectAnswerNumber(surveyUserResult.getPassCorrectAnswerNumber());
-        surveyHistoryEntity.setCoverCorrectAnswerNumber(surveyUserResult.getCoverCorrectAnswerNumber());
-        surveyHistoryEntity.setPassPercentage(surveyUserResult.getPassPercentage());
-        surveyHistoryEntity.setCoverPercentage(surveyUserResult.getCoverPercentage());
-        surveyHistoryEntity.setResult(surveyUserResult.getResult());
+        surveyHistoryEntity.setPassCorrectAnswerNumber(surveyUserResultCommand.getPassCorrectAnswerNumber());
+        surveyHistoryEntity.setCoverCorrectAnswerNumber(surveyUserResultCommand.getCoverCorrectAnswerNumber());
+        surveyHistoryEntity.setPassPercentage(surveyUserResultCommand.getPassPercentage());
+        surveyHistoryEntity.setCoverPercentage(surveyUserResultCommand.getCoverPercentage());
+        surveyHistoryEntity.setResult(surveyUserResultCommand.getResult());
         surveyHistoryAdapter.create(surveyHistoryEntity);
     }
 

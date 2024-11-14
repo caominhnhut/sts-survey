@@ -2,22 +2,22 @@ package com.sts.services.survey.repository.survey.survey;
 
 import com.sts.services.survey.dto.SurveyQueryDto;
 import com.sts.services.survey.service.survey.survey.SurveyQueryService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class SurveyQueryServiceImpl implements SurveyQueryService {
 
-    @Autowired
-    private SurveyMyBatisMapper surveyMyBatisMapper;
-    @Autowired
-    private SurveyJpaRepository surveyJpaRepository;
+    private final SurveyMyBatisMapper surveyMyBatisMapper;
+    private final SurveyJpaRepository surveyJpaRepository;
 
     @Override
-    public List<SurveyQueryDto> getSurveys() {
-        return surveyMyBatisMapper.getSurveys();
+    public List<SurveyQueryDto> getSurveys(boolean activeOnly) {
+        return surveyMyBatisMapper.getSurveys(activeOnly);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class SurveyQueryServiceImpl implements SurveyQueryService {
     }
 
     @Override
-    public SurveyQueryDto getSimpleSurveyDetails(Long surveyId) {
-        return surveyMyBatisMapper.getSimpleSurveyDetails(surveyId);
+    public SurveyQueryDto getSurveyDetailsConfig(Long surveyId) {
+        return surveyMyBatisMapper.getSurveyDetailsConfig(surveyId);
     }
 }

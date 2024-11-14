@@ -4,6 +4,7 @@ import { createSelector } from "reselect";
 import { allSurveys } from "../../../redux/surveysReducer";
 import SurveyCardItem from "./SurveyCardItem";
 import Grid from "@mui/material/Grid2";
+import { useNavigate } from "react-router-dom";
 
 const SurveyList = () => {
   const dispatch = useDispatch();
@@ -13,13 +14,14 @@ const SurveyList = () => {
       (state) => state.surveys,
     ),
   );
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(allSurveys());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <Grid container spacing={{ xs: 2, md: 3 }}>
+    <Grid container spacing={{ xs: 1, md: 2 }}>
       {surveys.map((survey, index) => (
         <Grid size="6" key={index}>
           <SurveyCardItem survey={survey} />

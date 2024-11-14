@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Conditional(value = {OAuth2RestTemplateConfigurer.ServiceAccountEnabled.class})
-public class OAuth2RestTemplateConfigurer{
+public class OAuth2RestTemplateConfigurer {
 
     /**
      * Condition class to configure OAuth2RestTemplate when both security is enabled and
@@ -21,10 +21,12 @@ public class OAuth2RestTemplateConfigurer{
         }
 
         @ConditionalOnProperty(prefix = "rest.security", value = "enabled", havingValue = "true")
-        static class SecurityEnabled {}
+        static class SecurityEnabled {
+        }
 
         @ConditionalOnProperty(prefix = "security.oauth2.client", value = "grant-type", havingValue = "client_credentials")
-        static class ClientCredentialConfigurationExists {}
+        static class ClientCredentialConfigurationExists {
+        }
 
     }
 }

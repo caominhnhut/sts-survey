@@ -43,6 +43,9 @@ const getUsername = () => _kc.tokenParsed?.preferred_username;
 
 const hasRole = (roles) => roles.some((role) => _kc.hasRealmRole(role));
 
+const hasAdminRole = () =>
+  _kc.hasResourceRole("fm", "stssurvey-services-client");
+
 const UserService = {
   initKeycloak,
   doLogin,
@@ -54,6 +57,7 @@ const UserService = {
   updateToken,
   getUsername,
   hasRole,
+  hasAdminRole,
 };
 
 export default UserService;

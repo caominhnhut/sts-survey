@@ -3,14 +3,14 @@ package com.sts.services.survey.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class SurveyUserSubmitRequestDto {
 
@@ -19,7 +19,6 @@ public class SurveyUserSubmitRequestDto {
     private List<QuestionAnswerDto> questionAnswers;
 
     @Data
-    @RequiredArgsConstructor
     @AllArgsConstructor
     public static class QuestionAnswerDto {
 

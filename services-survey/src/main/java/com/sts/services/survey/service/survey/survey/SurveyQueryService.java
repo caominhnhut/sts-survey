@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface SurveyQueryService {
 
-    List<SurveyQueryDto> getSurveys();
+    List<SurveyQueryDto> getSurveys(boolean activeOnly);
 
     SurveyQueryDto getSurveyDetails(Long surveyId);
 
-    SurveyQueryDto getSimpleSurveyDetails(Long surveyId);
+    SurveyQueryDto getSurveyDetailsConfig(Long surveyId);
 }

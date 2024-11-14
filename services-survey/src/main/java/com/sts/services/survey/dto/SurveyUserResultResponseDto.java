@@ -3,12 +3,12 @@ package com.sts.services.survey.dto;
 import com.sts.services.survey.entity.SurveyResult;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class SurveyUserResultResponseDto {
 
@@ -18,5 +18,5 @@ public class SurveyUserResultResponseDto {
     private BigDecimal passPercentage;
     private BigDecimal coverPercentage;
     private SurveyResult result;
-    
+
 }

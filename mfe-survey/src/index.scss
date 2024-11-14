@@ -1,16 +1,10 @@
-body,
-p,
-a,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-div,
-button,
-span,
-textarea {
+$primary-color: #74b915;
+$primary-hover-color: #65a30d;
+$secondary-color: #90da28;
+$background-color: white;
+$border-color: rgb(212, 212, 212);
+
+* {
   font-family: "Montserrat", sans-serif !important;
   font-optical-sizing: auto;
   font-style: normal;
@@ -20,9 +14,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #f6f6f6;
 }
 
 .page-content {
+  padding-top: 64px; // navbar height
   background-color: rgb(246, 246, 246);
   min-height: 100vh;
   width: 100%;
@@ -46,41 +42,64 @@ body {
 }
 
 .navbar {
-  background-color: #2b363f !important;
+  background-color: $background-color !important;
+  color: $primary-color;
+  border-bottom: 1px solid rgb(212, 212, 212);
+  position: sticky;
+  top: 0;
+  left: 0;
 
   &.MuiPaper-root.MuiPaper-elevation {
     padding: 0 14px !important;
   }
+
+  // Logout button
+  button {
+    background-color: $primary-color;
+    color: white;
+    font-weight: 600;
+  }
 }
 
-.MuiBox-root {
-  background-color: #3f4d58;
+.sidebar-container {
+  background-color: white;
+  border-right: 1px solid $border-color;
+  height: 100vh;
+  // min-height: 100vh;
+  position: sticky;
+  top: 0; // navbar height
+  left: 0;
+  padding-top: 64px;
 
-  .MuiListSubheader-root {
-    display: none;
-  }
+  .MuiBox-root {
+    height: 100%;
 
-  .MuiButtonBase-root {
-    background-color: #3f4d58 !important;
-  }
-
-  .custom-menu-item {
-    padding: 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.753);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background-color: #3f4d58;
-
-    &.selected {
-      background-color: #2b363f;
+    .MuiListSubheader-root {
+      display: none;
     }
 
-    &:hover {
-      background-color: #2b363f94;
+    .MuiButtonBase-root {
+      background-color: $background-color !important;
+    }
+
+    .custom-menu-item {
+      padding: 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      color: black;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: gray;
+
+      &.selected {
+        color: black;
+        background-color: $primary-color;
+      }
+      &:hover {
+        color: black;
+      }
     }
   }
 }
@@ -101,4 +120,50 @@ body {
   .fail {
     color: #ff0000;
   }
+}
+
+.section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px !important;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.primary-button {
+  background-color: $primary-color !important;
+  color: white !important;
+}
+
+.primary-text-button {
+  color: $primary-color !important;
+}
+
+.primary-outlined-button {
+  color: $primary-color !important;
+  background-color: transparent !important;
+}
+
+.search-input {
+  input {
+    background-color: white !important;
+  }
+}
+
+.active-status {
+  color: $primary-color;
+  background-color: #e0f2e9;
+}
+
+.inactive-status {
+  color: #ff0000;
+  background-color: #ffe0e0;
+}
+
+.badge {
+  border-radius: 20px;
+  padding: 4px 8px;
+  font-weight: 600;
+  max-width: 70px;
+  text-align: center;
+  margin: 0 auto;
 }

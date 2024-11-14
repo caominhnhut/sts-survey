@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.List;
@@ -26,8 +24,10 @@ public class SurveyController {
 
     @PreAuthorize("hasAuthority('ROLE_fm') or hasAuthority('ROLE_pm')")
     @GetMapping("/surveys")
-    public ResponseEntity<ResponseDto<List<SurveyQueryDto>>> getSurveys() {
-        List<SurveyQueryDto> surveys = surveyQueryService.getSurveys();
+    public ResponseEntity<ResponseDto<List<SurveyQueryDto>>> getSurveys(
+            @RequestParam(value = "activeOnly", required = false) boolean activeOnly
+    ) {
+        List<SurveyQueryDto> surveys = surveyQueryService.getSurveys(activeOnly);
         return ResponseEntity.ok(ResponseDto.response(surveys));
     }
 
@@ -39,9 +39,9 @@ public class SurveyController {
     }
 
     @PreAuthorize("hasAuthority('ROLE_fm')")
-    @GetMapping("/surveys//{id}/secured")
-    public ResponseEntity<ResponseDto<SurveyQueryDto>> getSimpleSurveyDetails(@PathVariable("id") @Positive Long id) {
-        SurveyQueryDto surveys = surveyQueryService.getSimpleSurveyDetails(id);
+    @GetMapping("/surveys/{id}/config")
+    public ResponseEntity<ResponseDto<SurveyQueryDto>> getSurveyDetailsConfig(@PathVariable("id") @Positive Long id) {
+        SurveyQueryDto surveys = surveyQueryService.getSurveyDetailsConfig(id);
         return ResponseEntity.ok(ResponseDto.response(surveys));
     }
 
