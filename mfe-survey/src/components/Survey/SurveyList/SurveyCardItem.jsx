@@ -5,8 +5,6 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import EventNoteIcon from "@mui/icons-material/EventNote";
-import EditIcon from "@mui/icons-material/Edit";
-import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function SurveyCardItem({ survey }) {

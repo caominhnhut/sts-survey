@@ -1,12 +1,13 @@
 import {
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Box,
   Button,
+  FormControl,
+  FormHelperText,
   IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
@@ -28,6 +29,10 @@ const Question = ({
   onUpdateAnswer,
   onRemoveAnswer,
 }) => {
+  const isAnyAnswerCorrect = question.answers.some(
+    (answer) => answer.isCorrect && !answer.isDeleted,
+  );
+
   function renderAnswer() {
     let renderAnsCount = 0;
     return question.answers.map((answer, aIndex) => {
@@ -103,6 +108,11 @@ const Question = ({
           <MenuItem value={ANSWER_TYPES.MULTI}>Multiple Choices</MenuItem>
           <MenuItem value={ANSWER_TYPES.TEXT}>Text</MenuItem>
         </Select>
+        {!isAnyAnswerCorrect && (
+          <FormHelperText error>
+            At least one answer must be correct
+          </FormHelperText>
+        )}
       </FormControl>
 
       <Box sx={{ mt: 2, mb: 2 }}>

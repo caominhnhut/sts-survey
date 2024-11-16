@@ -54,11 +54,11 @@ const surveysReducer = (state = initialState, action) => {
 
 export default surveysReducer;
 
-export const allSurveys = (activeOnly = false) => ({
+export const allSurveys = () => ({
   type: LIST_SURVEYS,
   payload: {
     request: {
-      url: `/api/surveys?activeOnly=${activeOnly}`,
+      url: "/api/surveys",
     },
   },
 });

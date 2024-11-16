@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import UserService from "../../services/UserService";
 
 const RenderOnAdminRole = ({ showNotAllowed, children }) => {

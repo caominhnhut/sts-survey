@@ -15,7 +15,7 @@ const SurveyList = () => {
   );
 
   useEffect(() => {
-    dispatch(allSurveys(true));
+    dispatch(allSurveys());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (

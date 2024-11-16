@@ -98,7 +98,8 @@ const SurveyDetailsForm = () => {
     let remainingQuestionAfterSubmit = formData.questions.length;
 
     for (let question of formData.questions) {
-      // DON'T TRY TO UNDERSTAND THIS CODE YOU GONNA DIE
+      // DON'T TRY TO UNDERSTAND THIS CODE.
+      // FROM THE BEGINNING THERE ARE 2 PEOPLE UNDERSTAND THIS, GOD AND ME, I'M PRETTY SURE THAT NOW IT'S ONLY GOD LEFT.
       if (question.isDeleted) {
         --remainingQuestionAfterSubmit;
         // IF DELETED QUESTION IS NOT EXISTED IN DB, THEN SKIP
@@ -181,6 +182,12 @@ const SurveyDetailsForm = () => {
     const newQuestions = cloneDeep(formData.questions);
     const updatingQuestion = newQuestions[index];
     if (updatingQuestion) {
+      if (field === "answerType" && value === ANSWER_TYPES.SINGLE) {
+        updatingQuestion.answers.forEach((answer) => {
+          answer.isCorrect = false;
+        });
+      }
+
       updatingQuestion[field] = value;
     }
     setFormData({ ...formData, questions: newQuestions });

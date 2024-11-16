@@ -26,7 +26,21 @@ const Answer = ({ answer, renderCount, questionType, onUpdate, onRemove }) => {
           alignItems: "center",
         }}
       >
-        <h4>Answer {renderCount}</h4>
+        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          <h4 style={{ width: "150px", margin: "0" }}>Answer {renderCount}</h4>
+          <FormControl fullWidth margin="none">
+            <Box display="flex" alignItems="center" gap={1}>
+              <Switch
+                checked={answer.isCorrect}
+                onChange={(e) => onUpdate("isCorrect", e.target.checked)}
+                color="primary"
+              />
+              <InputLabel sx={{ position: "relative", transform: "none" }}>
+                Correct
+              </InputLabel>
+            </Box>
+          </FormControl>
+        </div>
         <IconButton onClick={onRemove} color="error">
           <DeleteIcon />
         </IconButton>
@@ -39,22 +53,11 @@ const Answer = ({ answer, renderCount, questionType, onUpdate, onRemove }) => {
         onChange={(e) => onUpdate("name", e.target.value)}
         margin="normal"
         multiline={questionType === "TEXT"}
+        color={answer.isCorrect ? "success" : "error"}
+        focused={answer.isCorrect}
         rows={5}
         required
       />
-
-      <FormControl fullWidth margin="normal">
-        <Box display="flex" alignItems="center" gap={1}>
-          <Switch
-            checked={answer.isCorrect}
-            onChange={(e) => onUpdate("isCorrect", e.target.checked)}
-            color="primary"
-          />
-          <InputLabel sx={{ position: "relative", transform: "none" }}>
-            Correct Answer
-          </InputLabel>
-        </Box>
-      </FormControl>
     </Box>
   );
 };

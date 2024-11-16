@@ -45,7 +45,7 @@ const ManageSurvey = () => {
             searchString.toLowerCase().includes(searchKeyword.toLowerCase())
           ) {
             isMatch = true;
-            continue;
+            break;
           }
         }
 

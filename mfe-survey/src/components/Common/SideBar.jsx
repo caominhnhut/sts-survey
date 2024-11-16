@@ -1,8 +1,9 @@
-import { Sidebar, Menu, MenuItem } from "react-mui-sidebar";
+import { Menu, Sidebar } from "react-mui-sidebar";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import RenderOnAdminRole from "./RenderOnAdminRole";
+
 const SideBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
