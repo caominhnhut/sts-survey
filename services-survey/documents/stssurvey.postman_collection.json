@@ -1,0 +1,2210 @@
+{
+	"info": {
+		"_postman_id": "fce8db61-ac43-48d4-b987-7a3c84e6cba8",
+		"name": "sts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11805057"
+	},
+	"item": [
+		{
+			"name": "survey",
+			"item": [
+				{
+					"name": "keycloak",
+					"item": [
+						{
+							"name": "openid-configuration",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/auth/realms/stssurvey/.well-known/openid-configuration",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"realms",
+										"stssurvey",
+										".well-known",
+										"openid-configuration"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/auth/realms/stssurvey/.well-known/openid-configuration",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"realms",
+												"stssurvey",
+												".well-known",
+												"openid-configuration"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, must-revalidate, no-transform, no-store"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "content-length",
+											"value": "5991"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"issuer\": \"http://localhost:8080/auth/realms/stssurvey\",\n    \"authorization_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/auth\",\n    \"token_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token\",\n    \"introspection_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token/introspect\",\n    \"userinfo_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/userinfo\",\n    \"end_session_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/logout\",\n    \"frontchannel_logout_session_supported\": true,\n    \"frontchannel_logout_supported\": true,\n    \"jwks_uri\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/certs\",\n    \"check_session_iframe\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/login-status-iframe.html\",\n    \"grant_types_supported\": [\n        \"authorization_code\",\n        \"implicit\",\n        \"refresh_token\",\n        \"password\",\n        \"client_credentials\",\n        \"urn:ietf:params:oauth:grant-type:device_code\",\n        \"urn:openid:params:grant-type:ciba\"\n    ],\n    \"acr_values_supported\": [\n        \"0\",\n        \"1\"\n    ],\n    \"response_types_supported\": [\n        \"code\",\n        \"none\",\n        \"id_token\",\n        \"token\",\n        \"id_token token\",\n        \"code id_token\",\n        \"code token\",\n        \"code id_token token\"\n    ],\n    \"subject_types_supported\": [\n        \"public\",\n        \"pairwise\"\n    ],\n    \"id_token_signing_alg_values_supported\": [\n        \"PS384\",\n        \"ES384\",\n        \"RS384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"id_token_encryption_alg_values_supported\": [\n        \"RSA-OAEP\",\n        \"RSA-OAEP-256\",\n        \"RSA1_5\"\n    ],\n    \"id_token_encryption_enc_values_supported\": [\n        \"A256GCM\",\n        \"A192GCM\",\n        \"A128GCM\",\n        \"A128CBC-HS256\",\n        \"A192CBC-HS384\",\n        \"A256CBC-HS512\"\n    ],\n    \"userinfo_signing_alg_values_supported\": [\n        \"PS384\",\n        \"ES384\",\n        \"RS384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\",\n        \"none\"\n    ],\n    \"userinfo_encryption_alg_values_supported\": [\n        \"RSA-OAEP\",\n        \"RSA-OAEP-256\",\n        \"RSA1_5\"\n    ],\n    \"userinfo_encryption_enc_values_supported\": [\n        \"A256GCM\",\n        \"A192GCM\",\n        \"A128GCM\",\n        \"A128CBC-HS256\",\n        \"A192CBC-HS384\",\n        \"A256CBC-HS512\"\n    ],\n    \"request_object_signing_alg_values_supported\": [\n        \"PS384\",\n        \"ES384\",\n        \"RS384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\",\n        \"none\"\n    ],\n    \"request_object_encryption_alg_values_supported\": [\n        \"RSA-OAEP\",\n        \"RSA-OAEP-256\",\n        \"RSA1_5\"\n    ],\n    \"request_object_encryption_enc_values_supported\": [\n        \"A256GCM\",\n        \"A192GCM\",\n        \"A128GCM\",\n        \"A128CBC-HS256\",\n        \"A192CBC-HS384\",\n        \"A256CBC-HS512\"\n    ],\n    \"response_modes_supported\": [\n        \"query\",\n        \"fragment\",\n        \"form_post\",\n        \"query.jwt\",\n        \"fragment.jwt\",\n        \"form_post.jwt\",\n        \"jwt\"\n    ],\n    \"registration_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/clients-registrations/openid-connect\",\n    \"token_endpoint_auth_methods_supported\": [\n        \"private_key_jwt\",\n        \"client_secret_basic\",\n        \"client_secret_post\",\n        \"tls_client_auth\",\n        \"client_secret_jwt\"\n    ],\n    \"token_endpoint_auth_signing_alg_values_supported\": [\n        \"PS384\",\n        \"ES384\",\n        \"RS384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"introspection_endpoint_auth_methods_supported\": [\n        \"private_key_jwt\",\n        \"client_secret_basic\",\n        \"client_secret_post\",\n        \"tls_client_auth\",\n        \"client_secret_jwt\"\n    ],\n    \"introspection_endpoint_auth_signing_alg_values_supported\": [\n        \"PS384\",\n        \"ES384\",\n        \"RS384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"authorization_signing_alg_values_supported\": [\n        \"PS384\",\n        \"ES384\",\n        \"RS384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"authorization_encryption_alg_values_supported\": [\n        \"RSA-OAEP\",\n        \"RSA-OAEP-256\",\n        \"RSA1_5\"\n    ],\n    \"authorization_encryption_enc_values_supported\": [\n        \"A256GCM\",\n        \"A192GCM\",\n        \"A128GCM\",\n        \"A128CBC-HS256\",\n        \"A192CBC-HS384\",\n        \"A256CBC-HS512\"\n    ],\n    \"claims_supported\": [\n        \"aud\",\n        \"sub\",\n        \"iss\",\n        \"auth_time\",\n        \"name\",\n        \"given_name\",\n        \"family_name\",\n        \"preferred_username\",\n        \"email\",\n        \"acr\"\n    ],\n    \"claim_types_supported\": [\n        \"normal\"\n    ],\n    \"claims_parameter_supported\": true,\n    \"scopes_supported\": [\n        \"openid\",\n        \"phone\",\n        \"offline_access\",\n        \"address\",\n        \"microprofile-jwt\",\n        \"web-origins\",\n        \"roles\",\n        \"profile\",\n        \"acr\",\n        \"email\"\n    ],\n    \"request_parameter_supported\": true,\n    \"request_uri_parameter_supported\": true,\n    \"require_request_uri_registration\": true,\n    \"code_challenge_methods_supported\": [\n        \"plain\",\n        \"S256\"\n    ],\n    \"tls_client_certificate_bound_access_tokens\": true,\n    \"revocation_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/revoke\",\n    \"revocation_endpoint_auth_methods_supported\": [\n        \"private_key_jwt\",\n        \"client_secret_basic\",\n        \"client_secret_post\",\n        \"tls_client_auth\",\n        \"client_secret_jwt\"\n    ],\n    \"revocation_endpoint_auth_signing_alg_values_supported\": [\n        \"PS384\",\n        \"ES384\",\n        \"RS384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"backchannel_logout_supported\": true,\n    \"backchannel_logout_session_supported\": true,\n    \"device_authorization_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/auth/device\",\n    \"backchannel_token_delivery_modes_supported\": [\n        \"poll\",\n        \"ping\"\n    ],\n    \"backchannel_authentication_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/ext/ciba/auth\",\n    \"backchannel_authentication_request_signing_alg_values_supported\": [\n        \"PS384\",\n        \"ES384\",\n        \"RS384\",\n        \"ES256\",\n        \"RS256\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"require_pushed_authorization_requests\": false,\n    \"pushed_authorization_request_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/ext/par/request\",\n    \"mtls_endpoint_aliases\": {\n        \"token_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token\",\n        \"revocation_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/revoke\",\n        \"introspection_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token/introspect\",\n        \"device_authorization_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/auth/device\",\n        \"registration_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/clients-registrations/openid-connect\",\n        \"userinfo_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/userinfo\",\n        \"pushed_authorization_request_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/ext/par/request\",\n        \"backchannel_authentication_endpoint\": \"http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/ext/ciba/auth\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Authorization Code",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"pm.globals.set(\"token-STS_LOCAL\", jsonData.access_token);",
+											"pm.globals.set(\"refresh_token-STS_LOCAL\", jsonData.refresh_token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "authorization_code",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "27f2b3fb-cdc5-4dd2-ba0c-627508e5cabb.0430a57c-bb3d-49e7-902a-c4dadf28d538.09bfd85e-da86-4087-bd4e-0472e466c462",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "stssurvey-login-sso-idp-client",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "atQcjEyZpDWEkW18OKRMLJuHO4t76SaL",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "redirect_uri",
+											"value": "https://oidcdebugger.com/debug",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"realms",
+										"stssurvey",
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Authorization Code",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "grant_type",
+													"value": "authorization_code",
+													"type": "text"
+												},
+												{
+													"key": "code",
+													"value": "e314c31f-91d5-4577-9631-e4f3b754c8c1.d9ffb79a-f2ca-4d65-b6d1-a0847a0b10c4.09bfd85e-da86-4087-bd4e-0472e466c462",
+													"type": "text"
+												},
+												{
+													"key": "client_id",
+													"value": "stssurvey-login-sso-idp-client",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "atQcjEyZpDWEkW18OKRMLJuHO4t76SaL",
+													"type": "text"
+												},
+												{
+													"key": "redirect_uri",
+													"value": "https://oidcdebugger.com/debug",
+													"type": "text"
+												},
+												{
+													"key": "scope",
+													"value": "openid ",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "state",
+													"value": "8l0q3dca1fb",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "session_state",
+													"value": "fb19f607-80a1-4f6e-a8a6-b87437eb0781",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"realms",
+												"stssurvey",
+												"protocol",
+												"openid-connect",
+												"token"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-store"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "content-length",
+											"value": "3784"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJMRzZJMDNHdVJKcFJUVUk1TTVkdk1SWlk5bjZiOTUxTlcwU0xYeXo4OV9rIn0.eyJleHAiOjE3Mjg5NzY5MDEsImlhdCI6MTcyODk3NTEwMSwiYXV0aF90aW1lIjoxNzI4OTc1MDc3LCJqdGkiOiI5NGYxYzUzYy1kOWUxLTQxMTktOTEwMS1hM2U0OTJhZDY5OWIiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXV0aC9yZWFsbXMvc3Rzc3VydmV5IiwiYXVkIjpbInN0c3N1cnZleS1zZXJ2aWNlcy1jbGllbnQiLCJhY2NvdW50Il0sInN1YiI6ImRmY2M5ODBjLWNlYjYtNGQyZC05OTQ4LWI1NmZhNWFhMzNkNSIsInR5cCI6IkJlYXJlciIsImF6cCI6InN0c3N1cnZleS1sb2dpbi1zc28taWRwLWNsaWVudCIsIm5vbmNlIjoibDN3bWswdGN3ZCIsInNlc3Npb25fc3RhdGUiOiJkOWZmYjc5YS1mMmNhLTRkNjUtYjZkMS1hMDg0N2EwYjEwYzQiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtc3Rzc3VydmV5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InN0c3N1cnZleS1zZXJ2aWNlcy1jbGllbnQiOnsicm9sZXMiOlsicG0iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJkOWZmYjc5YS1mMmNhLTRkNjUtYjZkMS1hMDg0N2EwYjEwYzQiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJjdW9uZyBsdW9uZyIsInByZWZlcnJlZF91c2VybmFtZSI6ImN1b25nLXNzbyIsImdpdmVuX25hbWUiOiJjdW9uZyIsImZhbWlseV9uYW1lIjoibHVvbmciLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIn0.J9yWqfOUkkELmgImxTXLr40hNNuhKzNuLppwViADWQ8Dd6GpsnEZDi-LLkojOZlBaJU2gGg3YRjnzQpvNw_wZQKwaP1HHmV9Cpzd3HlrlSp3wYJnwG1XJN4NCv5t_9MfI2zbEj-Zedb7MCOC1vlX0_kgHZY_5zmt5afX7xVNCQY39XS2qakCHVdZjZcywVhmoiYMtpjcjlqhn5BwJev7d0op587Ej_6bxI537TftjA2Co3_UcZcMYZtCfv7Dp1VD6VYjbTAkfD_i6hkS6sf5pCIrZV6RGix7zYZgFnBTtcdIAX9vsVidr6r14XTj_wNBfptoHLQ7AaSuvH_0l2jTEQ\",\n    \"expires_in\": 1800,\n    \"refresh_expires_in\": 1776,\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5ZjA0MDE4OS05Y2U5LTQ0NGUtOTg0NC1lNmI5MmMwMDY2MGQifQ.eyJleHAiOjE3Mjg5NzY4NzcsImlhdCI6MTcyODk3NTEwMSwianRpIjoiMTU2YzQ3M2EtYzk3OS00ZWI4LWE0NDUtYmUxZjc3YWRjMWVlIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3N0c3N1cnZleSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9zdHNzdXJ2ZXkiLCJzdWIiOiJkZmNjOTgwYy1jZWI2LTRkMmQtOTk0OC1iNTZmYTVhYTMzZDUiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoic3Rzc3VydmV5LWxvZ2luLXNzby1pZHAtY2xpZW50Iiwibm9uY2UiOiJsM3dtazB0Y3dkIiwic2Vzc2lvbl9zdGF0ZSI6ImQ5ZmZiNzlhLWYyY2EtNGQ2NS1iNmQxLWEwODQ3YTBiMTBjNCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJkOWZmYjc5YS1mMmNhLTRkNjUtYjZkMS1hMDg0N2EwYjEwYzQifQ.SONUmR7znG6GeDoDHjyh8-B3JdsH7TZ17iseYfrzDrk\",\n    \"token_type\": \"Bearer\",\n    \"id_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJMRzZJMDNHdVJKcFJUVUk1TTVkdk1SWlk5bjZiOTUxTlcwU0xYeXo4OV9rIn0.eyJleHAiOjE3Mjg5NzY5MDEsImlhdCI6MTcyODk3NTEwMSwiYXV0aF90aW1lIjoxNzI4OTc1MDc3LCJqdGkiOiI1ZGJjMzQ0ZC1kNDNhLTRkMjktYmRiYS02ZjhjODFiNjI4OWYiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXV0aC9yZWFsbXMvc3Rzc3VydmV5IiwiYXVkIjoic3Rzc3VydmV5LWxvZ2luLXNzby1pZHAtY2xpZW50Iiwic3ViIjoiZGZjYzk4MGMtY2ViNi00ZDJkLTk5NDgtYjU2ZmE1YWEzM2Q1IiwidHlwIjoiSUQiLCJhenAiOiJzdHNzdXJ2ZXktbG9naW4tc3NvLWlkcC1jbGllbnQiLCJub25jZSI6Imwzd21rMHRjd2QiLCJzZXNzaW9uX3N0YXRlIjoiZDlmZmI3OWEtZjJjYS00ZDY1LWI2ZDEtYTA4NDdhMGIxMGM0IiwiYXRfaGFzaCI6InViT2dHTkZqNkdWWWdoU3pfd0hVaEEiLCJhY3IiOiIxIiwic2lkIjoiZDlmZmI3OWEtZjJjYS00ZDY1LWI2ZDEtYTA4NDdhMGIxMGM0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiY3VvbmcgbHVvbmciLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJjdW9uZy1zc28iLCJnaXZlbl9uYW1lIjoiY3VvbmciLCJmYW1pbHlfbmFtZSI6Imx1b25nIiwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSJ9.FZ-Rwf4m3o8qeHj3-9FCFFg-VD-T4ONT5bkrMe1-07v91Cp2pNbreKoosfEoJ89NpzCGtw7uNz6C9-wqguR2ouzSUipN7K-zA1wWOx30UNELgs6iuxZHEoC3or1QwoIlRHnKZI9mp4SiT7TEW1aSr4X6GMHp8BnaUTtIwn_CFV4uwAEBIwFtRZn-Icywjjx71JNO5GiS5FBpbp5RlTfC6oUAllt1kS5xdaTScjFhrEERObqbjmmmnTcKsBSK92Me09grWT5VXCKMd8r_8vAQ9AMmqW6rnhsIC2QttZSg-eUvKrRG2YtwVCRmqCLbwK5WXbXCsMYR_2Bn3qixqeD79w\",\n    \"not-before-policy\": 0,\n    \"session_state\": \"d9ffb79a-f2ca-4d65-b6d1-a0847a0b10c4\",\n    \"scope\": \"openid profile email\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Service Account",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"pm.globals.set(\"token-STS_LOCAL\", jsonData.access_token);",
+											"pm.globals.set(\"refresh_token-STS_LOCAL\", jsonData.refresh_token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "stssurvey-services-client",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "pMQDxG2XxR7dbbmJLBQptlY6JNF9twIK",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "openid dm-client-scope",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"realms",
+										"stssurvey",
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Service Account",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "grant_type",
+													"value": "client_credentials",
+													"type": "text"
+												},
+												{
+													"key": "client_id",
+													"value": "stssurvey-services-client",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "pMQDxG2XxR7dbbmJLBQptlY6JNF9twIK",
+													"type": "text"
+												},
+												{
+													"key": "scope",
+													"value": "openid dm-client-scope",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"realms",
+												"stssurvey",
+												"protocol",
+												"openid-connect",
+												"token"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-store"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "KC_RESTART=; Version=1; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/auth/realms/stssurvey/; HttpOnly"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "content-length",
+											"value": "1445"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJMRzZJMDNHdVJKcFJUVUk1TTVkdk1SWlk5bjZiOTUxTlcwU0xYeXo4OV9rIn0.eyJleHAiOjE3Mjg5NzY3NzcsImlhdCI6MTcyODk3NDk3NywianRpIjoiY2Q3YTNjZTctYzRjMC00YzZiLWI5NmQtMTcxNDY4ZmVlYzhkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3N0c3N1cnZleSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI3ZjVkYmYzMC03NWZiLTQyNjItOGUxMi04ODY4YzRlZjQ1M2MiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzdHNzdXJ2ZXktc2VydmljZXMtY2xpZW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLXN0c3N1cnZleSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJjbGllbnRIb3N0IjoiMTcyLjE5LjAuMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXN0c3N1cnZleS1zZXJ2aWNlcy1jbGllbnQiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMSIsImNsaWVudF9pZCI6InN0c3N1cnZleS1zZXJ2aWNlcy1jbGllbnQifQ.yOLZ3hjb7lpRFPSbj9NUjAbQsWQRHzZ0H1NjK-u5odi_HTieVedFtkwU4AM6_zwIcLqO5nRlo4rjaBA_a3AkK-v5yfZCCSdDK_8gtapiBfpmE1O5XgYC97IVLPO6s0DF-YRanL2ViomP_t-To1u5R2oLcjgqaOcUkPC26GB6zRqUWeOgVsnt_kAQLaA6z7ZyuGmsDRVVCuD69a0onaX6i4hy03wTVj4kONWN3mSJvTJgDBOoEIUOyzsWI7t7kTwxf5M5zzIhqWmlnkx2IDsMCWEShbfyrP50DlLrN_93mQvV4MrxY2e261_5rrTIYUG9vbrvroVGMsIRyeUfPXvlsA\",\n    \"expires_in\": 1800,\n    \"refresh_expires_in\": 0,\n    \"token_type\": \"Bearer\",\n    \"not-before-policy\": 0,\n    \"scope\": \"profile email\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Direct Access Grants",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"pm.globals.set(\"token-STS_LOCAL\", jsonData.access_token);\r",
+											"pm.globals.set(\"refresh_token-STS_LOCAL\", jsonData.refresh_token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "stssurvey-services-client",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "pMQDxG2XxR7dbbmJLBQptlY6JNF9twIK",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "cuong-services",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"realms",
+										"stssurvey",
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Direct Access Grants",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "grant_type",
+													"value": "password",
+													"type": "text"
+												},
+												{
+													"key": "client_id",
+													"value": "stssurvey-services-client",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "pMQDxG2XxR7dbbmJLBQptlY6JNF9twIK",
+													"type": "text"
+												},
+												{
+													"key": "username",
+													"value": "cuong-services",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "123123",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"realms",
+												"stssurvey",
+												"protocol",
+												"openid-connect",
+												"token"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-store"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "KEYCLOAK_LOCALE=; Version=1; Comment=Expiring cookie; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/auth/realms/stssurvey/; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "KC_RESTART=; Version=1; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/auth/realms/stssurvey/; HttpOnly"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "content-length",
+											"value": "2288"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJMRzZJMDNHdVJKcFJUVUk1TTVkdk1SWlk5bjZiOTUxTlcwU0xYeXo4OV9rIn0.eyJleHAiOjE3Mjg5NzY4NDMsImlhdCI6MTcyODk3NTA0MywianRpIjoiOGE0MmI5ZGEtNzRjNC00ZjQ0LWFkMmQtOGYxOGFiOTgyZGI4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3N0c3N1cnZleSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiNzIzYjNhNy02OGFjLTQ1OGQtODYwZC04OTUzZjg4NDA0MWQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzdHNzdXJ2ZXktc2VydmljZXMtY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6Ijk5NmMwMDAyLWRmMTMtNGZiYy1iY2E0LTdlMDgzYjQ5MmIxMCIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zdHNzdXJ2ZXkiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsic3Rzc3VydmV5LXNlcnZpY2VzLWNsaWVudCI6eyJyb2xlcyI6WyJmbSIsInBtIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiI5OTZjMDAwMi1kZjEzLTRmYmMtYmNhNC03ZTA4M2I0OTJiMTAiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6ImN1b25nLXNlcnZpY2VzIiwiZ2l2ZW5fbmFtZSI6IiIsImZhbWlseV9uYW1lIjoiIn0.hFqQmfqpcdUeLyEIcfPF8tIPSY4eloCx_N50YLAWond_6KGJdbYy14cDF6RF2iZ0uS1o9PsAanbEg35k5h0riqO2kBuN2AWvoC0u9XexZ4yS-oysP_2oydh6xzWWU3Lh2e9Q7KvLj3rFUFkxlY4F3YRXZ3yKX7R8EEmsiQ2ifH4JpcwEpWieUkuAma8BKQv9U7RIRjejo2i_ozUVpKQfH0TSGyltCnauT8O8K99XFra9t93-V_wHDCecK2fV8FZrb4nCAtPciuCaybVnTrZCB6fbyBFcmjQIQ5aTEgvj0GbN4D857rl1hLby4EwLQlYS8m99yRWxVMlehVVwelq8ww\",\n    \"expires_in\": 1800,\n    \"refresh_expires_in\": 1800,\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5ZjA0MDE4OS05Y2U5LTQ0NGUtOTg0NC1lNmI5MmMwMDY2MGQifQ.eyJleHAiOjE3Mjg5NzY4NDMsImlhdCI6MTcyODk3NTA0MywianRpIjoiN2Y2OTMyNDEtMjRjNi00OWUyLWI0MzUtMzdlMzZjM2UxOTQ5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL3N0c3N1cnZleSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hdXRoL3JlYWxtcy9zdHNzdXJ2ZXkiLCJzdWIiOiJiNzIzYjNhNy02OGFjLTQ1OGQtODYwZC04OTUzZjg4NDA0MWQiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoic3Rzc3VydmV5LXNlcnZpY2VzLWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiI5OTZjMDAwMi1kZjEzLTRmYmMtYmNhNC03ZTA4M2I0OTJiMTAiLCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiI5OTZjMDAwMi1kZjEzLTRmYmMtYmNhNC03ZTA4M2I0OTJiMTAifQ.U2BdcxrjoRmoC4khYbVI3DDWrzyiQme9pt-VbJv3HGI\",\n    \"token_type\": \"Bearer\",\n    \"not-before-policy\": 0,\n    \"session_state\": \"996c0002-df13-4fbc-bca4-7e083b492b10\",\n    \"scope\": \"profile email\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Refresh Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"pm.globals.set(\"token-STS_LOCAL\", jsonData.access_token);\r",
+											"pm.globals.set(\"refresh_token-STS_LOCAL\", jsonData.refresh_token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "refresh_token",
+											"type": "text"
+										},
+										{
+											"key": "refresh_token",
+											"value": "{{refresh_token-STS_LOCAL}}",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "stssurvey-login-sso-idp-client",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"realms",
+										"stssurvey",
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Token Instrospection",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "client_id",
+													"value": "stssurvey-services-client",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "pILo2kU35QP9QcUi5U5lXZfsTXSOZsTE",
+													"type": "text"
+												},
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJaUnBLbTRBZ0JDS3ZJZEtWZ1BxVGJORXRTdGNvYmhHc19sNTlkWHQ3eDBBIn0.eyJleHAiOjE3MzAzODU0MjYsImlhdCI6MTczMDM4NTM2NiwiYXV0aF90aW1lIjoxNzMwMzg1MzU5LCJqdGkiOiI2MzZkZjFkYi04ZmRjLTQ1NzktODkyMy1kYzVmNzIwMDBjMjMiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXV0aC9yZWFsbXMvc3Rzc3VydmV5IiwiYXVkIjpbInN0c3N1cnZleS1zZXJ2aWNlcy1jbGllbnQiLCJhY2NvdW50Il0sInN1YiI6ImVmOTRkN2NkLTI0YmMtNGM1Ny1hNTA0LWNkNGNiYTFkN2ZmOCIsInR5cCI6IkJlYXJlciIsImF6cCI6InB1YmxpYy1jbGllbnQiLCJub25jZSI6ImIyYWNjMDIzLTE3ZjMtNGMxMi04NzA2LTExMTJkMzRhOTg0NiIsInNlc3Npb25fc3RhdGUiOiIwY2QxOTg3MS00NTZjLTRhNTctOTQxMS1kMTAyZGQ0NGYwNTAiLCJhY3IiOiIwIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zdHNzdXJ2ZXkiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsic3Rzc3VydmV5LXNlcnZpY2VzLWNsaWVudCI6eyJyb2xlcyI6WyJwbSJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjBjZDE5ODcxLTQ1NmMtNGE1Ny05NDExLWQxMDJkZDQ0ZjA1MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY3Vvbmctc2VydmljZXMiLCJnaXZlbl9uYW1lIjoiIiwiZmFtaWx5X25hbWUiOiIifQ.eLb7PDs14kcQFhY8AVismPwEMIm7C-hOrs7G2nM5NaYa90322WSaPVcUsdbwnegS3cYR9Xe1v6jlydGj4hCWtnKuCTSrMVo2Y8Ow_D6VRz9yeATfTjxsk2bZknWz8-ULK55vgyEcRYOGhMt0iLTulBgPzbD7XZi3r_jd1F24FMvu6IbKiw-4fmZVnnbXDGYezJZIXyx-nlntmUkwBbI6JzDaLkaFuw5hWV4gyXmlCJ2xH8kewQWmbeo_6zdCOvqG2HNPw-1s5tUsNJ8bCvAHn9Qt1IbvCstPvkikB9Y6n7n4QSvy5aLONOzyIb7L4Gl0gJ9OB0_3tGvhh8fRwDZ1qQ",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token/introspect",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"realms",
+												"stssurvey",
+												"protocol",
+												"openid-connect",
+												"token",
+												"introspect"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "content-length",
+											"value": "16"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"active\": false\n}"
+								}
+							]
+						},
+						{
+							"name": "Token Instrospection",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "stssurvey-services-client",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "pILo2kU35QP9QcUi5U5lXZfsTXSOZsTE",
+											"type": "text"
+										},
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJaUnBLbTRBZ0JDS3ZJZEtWZ1BxVGJORXRTdGNvYmhHc19sNTlkWHQ3eDBBIn0.eyJleHAiOjE3MzAzODU0MjYsImlhdCI6MTczMDM4NTM2NiwiYXV0aF90aW1lIjoxNzMwMzg1MzU5LCJqdGkiOiI2MzZkZjFkYi04ZmRjLTQ1NzktODkyMy1kYzVmNzIwMDBjMjMiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXV0aC9yZWFsbXMvc3Rzc3VydmV5IiwiYXVkIjpbInN0c3N1cnZleS1zZXJ2aWNlcy1jbGllbnQiLCJhY2NvdW50Il0sInN1YiI6ImVmOTRkN2NkLTI0YmMtNGM1Ny1hNTA0LWNkNGNiYTFkN2ZmOCIsInR5cCI6IkJlYXJlciIsImF6cCI6InB1YmxpYy1jbGllbnQiLCJub25jZSI6ImIyYWNjMDIzLTE3ZjMtNGMxMi04NzA2LTExMTJkMzRhOTg0NiIsInNlc3Npb25fc3RhdGUiOiIwY2QxOTg3MS00NTZjLTRhNTctOTQxMS1kMTAyZGQ0NGYwNTAiLCJhY3IiOiIwIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zdHNzdXJ2ZXkiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsic3Rzc3VydmV5LXNlcnZpY2VzLWNsaWVudCI6eyJyb2xlcyI6WyJwbSJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjBjZDE5ODcxLTQ1NmMtNGE1Ny05NDExLWQxMDJkZDQ0ZjA1MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY3Vvbmctc2VydmljZXMiLCJnaXZlbl9uYW1lIjoiIiwiZmFtaWx5X25hbWUiOiIifQ.eLb7PDs14kcQFhY8AVismPwEMIm7C-hOrs7G2nM5NaYa90322WSaPVcUsdbwnegS3cYR9Xe1v6jlydGj4hCWtnKuCTSrMVo2Y8Ow_D6VRz9yeATfTjxsk2bZknWz8-ULK55vgyEcRYOGhMt0iLTulBgPzbD7XZi3r_jd1F24FMvu6IbKiw-4fmZVnnbXDGYezJZIXyx-nlntmUkwBbI6JzDaLkaFuw5hWV4gyXmlCJ2xH8kewQWmbeo_6zdCOvqG2HNPw-1s5tUsNJ8bCvAHn9Qt1IbvCstPvkikB9Y6n7n4QSvy5aLONOzyIb7L4Gl0gJ9OB0_3tGvhh8fRwDZ1qQ",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token/introspect",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"realms",
+										"stssurvey",
+										"protocol",
+										"openid-connect",
+										"token",
+										"introspect"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Token Instrospection",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "client_id",
+													"value": "stssurvey-services-client",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "pILo2kU35QP9QcUi5U5lXZfsTXSOZsTE",
+													"type": "text"
+												},
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJaUnBLbTRBZ0JDS3ZJZEtWZ1BxVGJORXRTdGNvYmhHc19sNTlkWHQ3eDBBIn0.eyJleHAiOjE3MzAzODU0MjYsImlhdCI6MTczMDM4NTM2NiwiYXV0aF90aW1lIjoxNzMwMzg1MzU5LCJqdGkiOiI2MzZkZjFkYi04ZmRjLTQ1NzktODkyMy1kYzVmNzIwMDBjMjMiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXV0aC9yZWFsbXMvc3Rzc3VydmV5IiwiYXVkIjpbInN0c3N1cnZleS1zZXJ2aWNlcy1jbGllbnQiLCJhY2NvdW50Il0sInN1YiI6ImVmOTRkN2NkLTI0YmMtNGM1Ny1hNTA0LWNkNGNiYTFkN2ZmOCIsInR5cCI6IkJlYXJlciIsImF6cCI6InB1YmxpYy1jbGllbnQiLCJub25jZSI6ImIyYWNjMDIzLTE3ZjMtNGMxMi04NzA2LTExMTJkMzRhOTg0NiIsInNlc3Npb25fc3RhdGUiOiIwY2QxOTg3MS00NTZjLTRhNTctOTQxMS1kMTAyZGQ0NGYwNTAiLCJhY3IiOiIwIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zdHNzdXJ2ZXkiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsic3Rzc3VydmV5LXNlcnZpY2VzLWNsaWVudCI6eyJyb2xlcyI6WyJwbSJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjBjZDE5ODcxLTQ1NmMtNGE1Ny05NDExLWQxMDJkZDQ0ZjA1MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY3Vvbmctc2VydmljZXMiLCJnaXZlbl9uYW1lIjoiIiwiZmFtaWx5X25hbWUiOiIifQ.eLb7PDs14kcQFhY8AVismPwEMIm7C-hOrs7G2nM5NaYa90322WSaPVcUsdbwnegS3cYR9Xe1v6jlydGj4hCWtnKuCTSrMVo2Y8Ow_D6VRz9yeATfTjxsk2bZknWz8-ULK55vgyEcRYOGhMt0iLTulBgPzbD7XZi3r_jd1F24FMvu6IbKiw-4fmZVnnbXDGYezJZIXyx-nlntmUkwBbI6JzDaLkaFuw5hWV4gyXmlCJ2xH8kewQWmbeo_6zdCOvqG2HNPw-1s5tUsNJ8bCvAHn9Qt1IbvCstPvkikB9Y6n7n4QSvy5aLONOzyIb7L4Gl0gJ9OB0_3tGvhh8fRwDZ1qQ",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/auth/realms/stssurvey/protocol/openid-connect/token/introspect",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"auth",
+												"realms",
+												"stssurvey",
+												"protocol",
+												"openid-connect",
+												"token",
+												"introspect"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "content-length",
+											"value": "16"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"active\": false\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "services-survey",
+					"item": [
+						{
+							"name": "Get-All-Surveys",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8181/api/surveys",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8181",
+									"path": [
+										"api",
+										"surveys"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8181/api/surveys",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"surveys"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 06:56:15 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"General Knowledge\",\n            \"description\": \"This survey is used for testing your general knowledge about Work Ethics, Society, Universe.\",\n            \"performTimeout\": 900000,\n            \"passCorrectAnswerNumber\": 2,\n            \"questions\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Công ty có quy đnh ấm đánh nhau, nhưng bạn phát sinh mâu thuẫn với đồng nghiệp, đồng nghiệp muốn đánh bạn thì bạn phải làm thế nào?\",\n                    \"answerType\": \"SINGLE\",\n                    \"answers\": [\n                        {\n                            \"id\": 1,\n                            \"name\": \"Đợi ở cổng công ty\"\n                        },\n                        {\n                            \"id\": 2,\n                            \"name\": \"Chạy\"\n                        },\n                        {\n                            \"id\": 3,\n                            \"name\": \"Đánh\"\n                        },\n                        {\n                            \"id\": 4,\n                            \"name\": \"Báo cấp trên\"\n                        }\n                    ]\n                },\n                {\n                    \"id\": 2,\n                    \"name\": \"Select Top 3 biggest cities in Vietnam.\",\n                    \"answerType\": \"MULTI\",\n                    \"answers\": [\n                        {\n                            \"id\": 5,\n                            \"name\": \"Ho Chi Minh\"\n                        },\n                        {\n                            \"id\": 6,\n                            \"name\": \"Ha Noi\"\n                        },\n                        {\n                            \"id\": 7,\n                            \"name\": \"Da Nang\"\n                        },\n                        {\n                            \"id\": 8,\n                            \"name\": \"Binh Duong\"\n                        }\n                    ]\n                },\n                {\n                    \"id\": 3,\n                    \"name\": \"Hãy nêu cảm nghĩ của bạn về độ hiệu quả của bài test!\",\n                    \"description\": \"Vui lòng nhập câu trả lời vào bên dưới.\",\n                    \"answerType\": \"TEXT\",\n                    \"answers\": [\n                        {\n                            \"id\": 9,\n                            \"name\": \"<Some keyword could be used for checking TEXT type>\"\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get-Survey-Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8181/api/surveys/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8181",
+									"path": [
+										"api",
+										"surveys",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get-Survey-Details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8181/api/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 02 Nov 2024 13:19:51 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"General Knowledge\",\n        \"description\": \"This survey is used for testing your general knowledge about Work Ethics, Society, Universe.\",\n        \"performTimeout\": 900000,\n        \"passCorrectAnswerNumber\": 2,\n        \"questions\": [\n            {\n                \"id\": 1,\n                \"name\": \"Công ty có quy đnh ấm đánh nhau, nhưng bạn phát sinh mâu thuẫn với đồng nghiệp, đồng nghiệp muốn đánh bạn thì bạn phải làm thế nào?\",\n                \"answerType\": \"SINGLE\",\n                \"answers\": [\n                    {\n                        \"id\": 1,\n                        \"name\": \"Đợi ở cổng công ty\"\n                    },\n                    {\n                        \"id\": 2,\n                        \"name\": \"Chạy\"\n                    },\n                    {\n                        \"id\": 3,\n                        \"name\": \"Đánh\"\n                    },\n                    {\n                        \"id\": 4,\n                        \"name\": \"Báo cấp trên\"\n                    }\n                ]\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Select Top 3 biggest cities in Vietnam.\",\n                \"answerType\": \"MULTI\",\n                \"answers\": [\n                    {\n                        \"id\": 5,\n                        \"name\": \"Ho Chi Minh\"\n                    },\n                    {\n                        \"id\": 6,\n                        \"name\": \"Ha Noi\"\n                    },\n                    {\n                        \"id\": 7,\n                        \"name\": \"Da Nang\"\n                    },\n                    {\n                        \"id\": 8,\n                        \"name\": \"Binh Duong\"\n                    }\n                ]\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Hãy nêu cảm nghĩ của bạn về độ hiệu quả của bài test!\",\n                \"description\": \"Vui lòng nhập câu trả lời vào bên dưới.\",\n                \"answerType\": \"TEXT\",\n                \"answers\": [\n                    {\n                        \"id\": 9,\n                        \"name\": \"<Some keyword could be used for checking TEXT type>\"\n                    }\n                ]\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get-Survey-Secured",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8181/api/surveys/1/secured",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8181",
+									"path": [
+										"api",
+										"surveys",
+										"1",
+										"secured"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8181/api/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 09:18:40 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"General Knowledge\",\n        \"description\": \"This survey is used for testing your general knowledge about Work Ethics, Society, Universe.\",\n        \"performTimeout\": 900000,\n        \"passCorrectAnswerNumber\": 2,\n        \"status\": \"ACTIVE\"\n    }\n}"
+								},
+								{
+									"name": "403",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8181/api/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-store"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 09:18:15 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"access_denied\",\n    \"error_description\": \"Access is denied\"\n}"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8181/api/surveys/0",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"surveys",
+												"0"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 09:18:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"pointer\": \"id\",\n            \"detail\": \"must be greater than 0\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Post-Survey-User-Submit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answerIds\": [4]\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answerIds\": [5,6,7]\r\n        },\r\n        {\r\n            \"questionId\": 3,\r\n            \"answerText\": \"Very Good\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8181/api/users/surveys/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8181",
+									"path": [
+										"api",
+										"users",
+										"surveys",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - PASS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answerIds\": [4]\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answerIds\": [5,6,7]\r\n        },\r\n        {\r\n            \"questionId\": 3,\r\n            \"answerText\": \"Very Good\"\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8181/api/users/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"users",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 07:43:16 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"totalQuestion\": 3,\n        \"passCorrectAnswerNumber\": 2,\n        \"coverCorrectAnswerNumber\": 3,\n        \"passPercentage\": 66.67,\n        \"coverPercentage\": 100,\n        \"result\": \"PASS\"\n    }\n}"
+								},
+								{
+									"name": "200 - PASS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answerIds\": [4]\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answerIds\": [5,6]\r\n        },\r\n        {\r\n            \"questionId\": 3,\r\n            \"answerText\": \"Very Good\"\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8181/api/users/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"users",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 07:44:25 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"totalQuestion\": 3,\n        \"passCorrectAnswerNumber\": 2,\n        \"coverCorrectAnswerNumber\": 2,\n        \"passPercentage\": 66.67,\n        \"coverPercentage\": 66.67,\n        \"result\": \"PASS\"\n    }\n}"
+								},
+								{
+									"name": "200 - FAIL",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answerIds\": [3]\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answerIds\": [5,6]\r\n        },\r\n        {\r\n            \"questionId\": 3,\r\n            \"answerText\": \"Very Good\"\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8181/api/users/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"users",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 07:45:00 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"totalQuestion\": 3,\n        \"passCorrectAnswerNumber\": 2,\n        \"coverCorrectAnswerNumber\": 1,\n        \"passPercentage\": 66.67,\n        \"coverPercentage\": 33.33,\n        \"result\": \"FAIL\"\n    }\n}"
+								},
+								{
+									"name": "400 - 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    // \"questionAnswers\": [\r\n    //     {\r\n    //         \"questionId\": 1,\r\n    //         \"answerIds\": [4]\r\n    //     },\r\n    //     {\r\n    //         \"questionId\": 2,\r\n    //         \"answerIds\": [5,6,7]\r\n    //     },\r\n    //     {\r\n    //         \"questionId\": 3,\r\n    //         \"answerText\": \"Very Good\"\r\n    //     }\r\n    // ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8181/api/users/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"users",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 09:19:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"pointer\": \"questionAnswers\",\n            \"detail\": \"must not be null\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "400 - 2",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answerIds\": [4]\r\n        },\r\n        {\r\n            \"answerIds\": [5,6,7]\r\n        },\r\n        {\r\n            \"questionId\": 3,\r\n            \"answerText\": \"Very Good\"\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8181/api/users/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"users",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 09:20:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"pointer\": \"questionAnswers[1].questionId\",\n            \"detail\": \"must not be null\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "400 - 3",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answerIds\": [4]\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answerIds\": [5,6,7]\r\n        },\r\n        {\r\n            \"questionId\": 3,\r\n            \"answerText\": \"Very Good\"\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8181/api/users/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"users",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 09:20:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"pointer\": \"surveyId\",\n            \"detail\": \"must be greater than 0\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "400 - 4",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answerIds\": [4]\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answerIds\": [5,6,7]\r\n        },\r\n        {\r\n            \"questionId\": 3,\r\n            \"answerText\": \"Very Good\"\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8181/api/users/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"users",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 09:20:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"pointer\": \"surveyId\",\n            \"detail\": \"Survey not found\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "400 - 5",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answerIds\": [4]\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answerIds\": [5,6,7]\r\n        },\r\n        {\r\n            \"questionId\": 3,\r\n            \"answerText\": \"Very Good\"\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8181/api/users/surveys/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"users",
+												"surveys",
+												"1"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 09:21:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"pointer\": \"surveyId\",\n            \"detail\": \"Survey is not active\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get-Survey-Histories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8181/api/survey-histories?username=cuong-sso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8181",
+									"path": [
+										"api",
+										"survey-histories"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "cuong-sso"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8181/api/survey-histories?username=cuong-services",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8181",
+											"path": [
+												"api",
+												"survey-histories"
+											],
+											"query": [
+												{
+													"key": "username",
+													"value": "cuong-services"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 09:23:02 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 11,\n            \"surveyId\": \"1\",\n            \"username\": \"cuong-services\",\n            \"submitDate\": \"2024-10-15T16:22:32.619617\",\n            \"totalQuestion\": 3,\n            \"passCorrectAnswerNumber\": 2,\n            \"coverCorrectAnswerNumber\": 3,\n            \"passPercentage\": 66.67,\n            \"coverPercentage\": 100,\n            \"result\": \"PASS\"\n        },\n        {\n            \"id\": 12,\n            \"surveyId\": \"1\",\n            \"username\": \"cuong-services\",\n            \"submitDate\": \"2024-10-15T16:22:49.592299\",\n            \"totalQuestion\": 3,\n            \"passCorrectAnswerNumber\": 2,\n            \"coverCorrectAnswerNumber\": 1,\n            \"passPercentage\": 66.67,\n            \"coverPercentage\": 33.33,\n            \"result\": \"FAIL\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token-STS_LOCAL}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

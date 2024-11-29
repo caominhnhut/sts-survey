@@ -1,0 +1,170 @@
+$primary-color: #74b915;
+$primary-hover-color: #65a30d;
+$secondary-color: #90da28;
+$background-color: white;
+$border-color: rgb(212, 212, 212);
+
+* {
+  font-family: "Montserrat", sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f6f6f6;
+}
+
+.page-content {
+  padding-top: 64px; // navbar height
+  background-color: rgb(246, 246, 246);
+  min-height: 100vh;
+  width: 100%;
+}
+
+.three-lines-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 18px;
+  height: 54px;
+
+  @supports (-webkit-line-clamp: 3) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.navbar {
+  background-color: $background-color !important;
+  color: $primary-color;
+  border-bottom: 1px solid rgb(212, 212, 212);
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  &.MuiPaper-root.MuiPaper-elevation {
+    padding: 0 14px !important;
+  }
+
+  // Logout button
+  button {
+    background-color: $primary-color;
+    color: white;
+    font-weight: 600;
+  }
+}
+
+.sidebar-container {
+  background-color: white;
+  border-right: 1px solid $border-color;
+  height: 100vh;
+  // min-height: 100vh;
+  position: sticky;
+  top: 0; // navbar height
+  left: 0;
+  padding-top: 64px;
+
+  .MuiBox-root {
+    height: 100%;
+
+    .MuiListSubheader-root {
+      display: none;
+    }
+
+    .MuiButtonBase-root {
+      background-color: $background-color !important;
+    }
+
+    .custom-menu-item {
+      padding: 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      color: black;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: gray;
+
+      &.selected {
+        color: black;
+        background-color: $primary-color;
+      }
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
+
+.result-table {
+  th {
+    text-align: left;
+    font-weight: 700;
+  }
+  td {
+    padding: 0 48px;
+  }
+
+  .pass {
+    color: #00ff00;
+  }
+
+  .fail {
+    color: #ff0000;
+  }
+}
+
+.section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px !important;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.primary-button {
+  background-color: $primary-color !important;
+  color: white !important;
+}
+
+.primary-text-button {
+  color: $primary-color !important;
+}
+
+.primary-outlined-button {
+  color: $primary-color !important;
+  background-color: transparent !important;
+}
+
+.search-input {
+  input {
+    background-color: white !important;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  }
+}
+
+.active-status {
+  color: $primary-color;
+  background-color: #e0f2e9;
+}
+
+.inactive-status {
+  color: #ff0000;
+  background-color: #ffe0e0;
+}
+
+.badge {
+  border-radius: 20px;
+  padding: 4px 8px;
+  font-weight: 600;
+  max-width: 70px;
+  text-align: center;
+  margin: 0 auto;
+}

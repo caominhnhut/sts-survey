@@ -1,0 +1,39 @@
+<!doctype html>
+<html data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <title>STS Survey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="app">Loading application...</div>
+    <script type="module" src="/src/index.jsx"></script>
+    <script>
+      (function () {
+        const htmlElement = document.querySelector("html");
+        if (htmlElement.getAttribute("data-bs-theme") === "auto") {
+          function updateTheme() {
+            document
+              .querySelector("html")
+              .setAttribute(
+                "data-bs-theme",
+                window.matchMedia("(prefers-color-scheme: dark)").matches
+                  ? "dark"
+                  : "light",
+              );
+          }
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", updateTheme);
+          updateTheme();
+        }
+      })();
+    </script>
+  </body>
+</html>
